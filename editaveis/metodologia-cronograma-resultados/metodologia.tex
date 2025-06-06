@@ -1,0 +1,79 @@
+\chapter[Metodologia]{Metodologia} \label{chapter:Metodologia}
+
+%\section{Considerações iniciais do capítulo}
+Considerando que um dos objetivos deste trabalho é unir elementos lúdicos ao ensino de matemática para jovens e crianças, este capítulo apresenta o plano metodológico em relação aos seguintes tópicos: métodos de desenvolvimento de software, levantamento de requisitos, ambiente de desenvolvimento, fontes de pesquisas bibliográficas e a localização e escolha dos \textit{assets} do \textit{game}.
+
+\section{Processo de desenvolvimento}
+O processo de desenvolvimento é parte vital para que um software em fase de produção possa atingir altos níveis de qualidade e, consequentemente, sucesso. A iteratividade deste processo é importante durante o desenvolvimento de um \textit{game}, visto que ideias que pareciam geniais, quando propostas, podem ser abandonadas, ou até terem seu desenvolvimento prorrogado, por não suprirem expectativas, ou até não funcionarem como o esperado dentro do contexto do \textit{game}.
+
+Nesta seção serão abordadas e exemplificadas todas as fases do desenvolvimento do \textit{Math Hero}.
+
+\subsection{Levantamento de requisitos}
+Durante essa etapa, as técnicas escolhidas para a elicitação dos requisitos foram a introspecção e a entrevista. A técnica de introspecção trouxe liberdade ao processo criativo, para que este trabalho pudesse seguir sem adotar padrões de projetos de \textit{games} educativos já existentes, visto que estes geralmente possuem baixa adesão por parte de seu público alvo, por deixarem o caráter lúdico de lado em favor do caráter educacional. Já a técnica de entrevista foi utilizada principalmente para coletar \textit{feedbacks} dos jogadores e dos observadores, para que fossem feitos ajustes tanto na parte de jogabilidade (\textit{gameplay}) quanto nos elementos que proporcionam a sensação de imersão ao jogador durante todo fluxo do \textit{game}.
+
+\subsection{\textit{Game Design}}
+Para criar um game, normalmente inicia-se definindo um objetivo a ser alcançado pelo jogador. E, para tornar sua jornada até este objetivo divertida e imersiva, o \textit{Game Design} define o escopo e as mecânicas que o jogador terá acesso, bem como os elementos gráficos e sonoros para auxiliar, guiar e imergir o jogador na superação de obstáculos até alcançar o objetivo final.
+
+Primeiramente, para conhecer melhor o que era desejado, foi necessário definir o que era não era desejado. E, a partir do distanciamento de conceitos de games educativos padrão, foi definido que o game \textit{Math Hero} teria como principal objetivo não deixar o aspecto lúdico de lado, em favor do aspecto educativo. Seria necessário então progredir nesta fase com foco em balancear o educativo e o lúdico dentro do \textit{game}.
+
+O gênero escolhido foi o \textit{platformer adventure puzzle} para que, durante o modo história, o jogador possa aprender técnicas matemáticas e também utilizar suas habilidades para progredir. Além disso, quando este estiver jogando o modo \textit{time attack}, ele poderá testar suas habilidades e competir contra colegas em desafios matemáticos com temporizadores.
+
+\subsection{Desenvolvimento}
+A fase de desenvolvimento de um videogame, como todo software, é onde ocorre a união dos requisitos, regras e funcionalidades levantadas nas fases anteriores. A escolha de ferramentas e linguagens de programação adequadas altera drasticamente a experiência de desenvolvimento, o fluxo de trabalho e também a qualidade do produto final.
+
+A primeira etapa feita na fase de desenvolvimento foi justamente a escolha de ferramentas de desenvolvimento que favorecessem este processo, tendo como ponto de partida para as escolhas a experiência prévia do autor com desenvolvimento de jogos. Assim, foi definido que as ferramentas utilizadas no desenvolvimento deste projeto seriam o git 2.34.1, GitHub, Godot Game Engine 4.3, Visual Studio Code 1.96.4 e Aseprite v1.3-beta.
+
+A escolha feita pela Godot Game Engine foi baseada nos requisitos do \textit{game}, por ser uma \textit{game engine} que é gratuita, de uso livre e de código aberto, além de trazer facilidade quanto ao aprendizado e utilização dos recursos, por possuir uma extensa e completa documentação de seus recursos nativos, e por ter uma comunidade grande de desenvolvedores, o que faz com que seja possível buscar por ajuda em fóruns e comunidades virtuais de desenvolvedores.
+
+Logo em seguida, para seguir as boas práticas da engenharia de \textit{games}, foi necessário realizar a escolha dos métodos de desenvolvimento de software a serem seguidos, para melhor rastreabilidade e controle das tarefas realizadas durante a produção. Assim, foi definida a utilização do SCRUM solo, exemplificado por \citeonline{pagotto_scrum_solo}, além de elementos do XP (Extreme programming) \cite{wells_extreme_2009}.
+
+O planejamento do desenvolvimento do game foi feito por meio da plataforma web de colaboração e controle de versionamento GitHub, por meio da funcionalidade GitHub Projects. As etapas de planejamento adotadas foram, em sequência: a definição do escopo e do tema do \textit{game} por meio de reuniões com o professor orientador deste projeto, a definição da duração das \textit{sprints} do projeto, a frequência das reuniões de acompanhamento, e também a rotina de acompanhamento do projeto pelo professor orientador. 
+
+A duração de uma \textit{sprint} foi definida para duas semanas, tendo em vista o tempo necessário para a criação ou seleção de \textit{assets}, desde \textit{sprites} 2D até arquivos de áudio para trilha sonora, e para o desenvolvimento da mecânica planejada. A periodicidade das reuniões de acompanhamento foi semanal, para que o professor orientador pudesse ter maior visão e controle da fase atual de desenvolvimento. E, por fim, a estrutura de acompanhamento do andamento das tarefas de desenvolvimento foi feita por meio de um quadro automático que envia atualizações para o e-mail do professor orientador sobre novas tarefas, atualizações em tarefas existentes e finalização de tarefas planejadas.
+
+\subsection{\textit{Playtesting}}
+
+A fase de \textit{playtesting} é de extrema importância para o desenvolvimento de um \textit{game}, pois ela possibilita a visualização e adaptação de mecânicas desenvolvidas, bem como a exclusão e ideação de novas mecânicas que se encaixem melhor no contexto definido para o \textit{game}. Mesmo em fase de \textit{playtesting}, a equipe de desenvolvimento de um jogo pode aprender muito e realizar correções e mudanças que, sem o \textit{feedback} de pessoas externas ao desenvolvimento, não seriam feitas.
+
+Durante a prototipação, os \textit{feedbacks} coletados de pessoas pertencentes ao público alvo serviram para obter uma visão geral de como a ideia do \textit{game} se comportaria perante os usuários finais. As mudanças sugeridas impactaram não somente o \textit{game design} mas as mecânicas propostas também, para que o conceito do game se tornasse mais atrativo para jovens e crianças do ensino básico.
+
+\section{Pesquisa de fontes bibliográficas}
+
+A pesquisa de fontes bibliográficas é parte crucial de um trabalho de caráter científico. Por isso, a seleção de fontes que auxiliam na escrita, desenvolvimento e produção de resultados torna-se uma tarefa extensa e importante.
+
+Para este trabalho, por conta do tema principal, as fontes bibliográficas escolhidas variam desde documentações à vídeos informativos disponibilizados no \citeonline{youtube}. Essa grande variedade de fontes informativas foi necessária devido ao caráter multidisciplinar do desenvolvimento de jogos. Mas, também, foi necessário uma fundamentação teórica sólida para que fosse possível demonstrar como práticas propostas pela engenharia de \textit{software} são aplicadas ao desenvolvimento de \textit{games}, além de demonstrar o impacto da adição de elementos lúdicos ao ensino da matemática.
+
+Os termos pesquisados foram ``Game Development, Game Engineering, Game Design, Cálculo Mental, Ludicidade e Ensino, Requisitos de Software, SCRUM, Desenvolvimento Ágil, Jogos e Matemática, Aprendizado matemática, Extreme Programming e IREB''. Dos resultados encontrados, foram selecionados 7 artigos de relevância para este trabalho. A Tabela \ref{table:Tabela de busca} representa os motores de busca utilizados, os termos de busca, a quantidade de resultados, a quantidade de artigos avaliados e a quantidade escolhida. Os critérios para a seleção foram a relação com o tema deste trabalho e a relevância da referência.
+
+\begingroup
+    \begin{table}[htbp]
+        \caption{Classificação da busca de refêrencias para o desenvolvimento do trabalho.}
+        \label{table:Tabela de busca}
+    \begin{center}
+        \begin{tabular}{l l c c c}
+            \toprule
+            \textbf{Motor de busca} & \textbf{Termos} & \textbf{Resultados} & \textbf{Avaliados} & \textbf{Escolhidos}\\
+            \midrule
+            Periódicos CAPES & \textit{Game Engineering} & 144.265 & 15 & 5 \\
+            \rowcolor{Gray} Periódicos CAPES & \textit{Game Development} & 73.866 & 13 & 2 \\
+            Periódicos CAPES & \textit{Game Design} & 72.484 & 4 & 1 \\
+            \rowcolor{Gray} Periódicos CAPES & \textit{Cálculo Mental} & 818 & 4 & 2\\
+            Periódicos CAPES & \textit{Ludicidade, ensino} & 736 & 10 & 2\\
+            \rowcolor{Gray} Periódicos CAPES & \textit{Requisitos de Software} & 946  & 3 & 2\\
+            Periódicos CAPES & \textit{SCRUM} & 4.456 & 10 & 1\\
+            \rowcolor{Gray} Periódicos CAPES & \textit{Desenvolvimento ágil} & 312 & 4 & 3\\
+            Periódicos CAPES & \textit{jogos; matemática} & 1.572 & 10 & 3\\
+            \rowcolor{Gray} Periódicos CAPES & \textit{Aprendizado matemática} & 1.142 & 4 & 1\\
+            YouTube & \textit{Game Engineering} & Não disponível & 10 & 0\\
+            \rowcolor{Gray} Youtube & \textit{Game Development} & Não disponível & 3 & 1\\
+            YouTube & \textit{Game Design} & Não disponível & 25 & 3\\
+            \rowcolor{Gray} Youtube & \textit{Cálculo Mental} & Não disponível & 5 & 0\\
+            Google & \textit{Extreme Progamming org} & 79.600.000 & 15 & 1 \\
+            \rowcolor{Gray} Google & \textit{IREB} & 582.000 & 5 & 1\\
+            \hline
+        \end{tabular}
+        \legend{Fonte: o Autor}
+    \end{center}
+    \end{table}
+\endgroup
+

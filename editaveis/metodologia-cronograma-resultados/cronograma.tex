@@ -1,0 +1,158 @@
+\chapter[Cronograma]{Cronograma} \label{chapter:Cronograma}
+
+As atividades desenvolvidas foram organizadas em um cronograma para melhorar a rastreabilidade e a organização do projeto. Por se tratar de um trabalho de conclusão de curso, o projeto do game \textit{Math Hero} foi dividido em duas etapas.
+
+\section{Primeira etapa}
+As atividades dispostas na tabela \ref{table:Atividades de desenvolvimento 1} foram separadas em \textit{sprints} de duas semanas, com início no dia 04 de setembro de 2023 e data final em 10 de dezembro de 2023.
+
+\begingroup
+    \begin{table}[htbp]
+        \caption{Primeira etapa de desenvolvimento do game \textit{Math Hero}.}
+        \label{table:Atividades de desenvolvimento 1}
+    \begin{center}
+        \begin{tabular}{l l}
+            \toprule
+            \textbf{Id da tarefa} & \textbf{Atividade}\\
+            \midrule
+            \#01 & Estudo do contexto do projeto\\
+            \rowcolor{Gray} \#02 & Levantamento de requisitos\\
+            \#03 & Rascunho inicial da arte do game\\
+            \rowcolor{Gray} \#04 & Rascunho inicial do GDD\\
+            \#05 & Configuração do projeto na Godot Engine\\
+            \rowcolor{Gray} \#06 & Criação das mecânicas básicas do game\\
+            \#07 & Criação de \textit{scene} de teste\\
+            \rowcolor{Gray} \#08 & Criação do modelo de NPC\\
+            \#09 & Criação da mecânica de batalha de matemática\\
+            \rowcolor{Gray} \#10 & Criação do modelo de inimigo\\
+            \#11 & Criação das artes dos elementos da batalha de matemática\\
+            \rowcolor{Gray} \#12 & Correção de \textit{bug} nos colisores das paredes do cenário\\
+            \#13 & Adição de elementos sonoros\\
+            \rowcolor{Gray} \#14 & Adição do level de início do game\\
+            \#15 & Escrita da documentação do TCC\\
+        \end{tabular}
+        \legend{Fonte: o Autor}
+    \end{center}
+    \end{table}
+\endgroup
+
+A tabela \ref{gantt:Cronograma TCC1} mostra a duração, a data de início e de finalização de cada uma das tarefas descritas pela tabela \ref{table:Atividades de desenvolvimento 1}.
+
+\newpage
+\begin{landscape}
+\begin{table}[htbp]
+    \caption{Cronograma de execução de tarefas.}
+    \label{gantt:Cronograma TCC1}
+\begin{center}
+\begin{ganttchart}[
+    expand chart=\paperwidth,
+    y unit chart=18,
+    group left shift=0,
+    group right shift=0,
+    group peaks height=0,
+    group label font=\footnotesize,
+    group/.append style={draw=black,fill=UnB_Verde},
+    bar height=.2,
+    bar/.append style={draw=none,fill=UnB_Azul},
+]{1}{7}
+    \gantttitle{\textbf{Cronograma de tarefas -- \textit{Math Hero}}}{7} \\
+    \gantttitlelist{"Sprint 1","Sprint 2","Sprint 3","Sprint 4","Sprint 5","Sprint 6","Sprint 7"}{1} \\
+    \ganttbar{\#01}{1}{1} \\
+    \ganttbar{\#02}{1}{7} \\
+    \ganttbar{\#03}{2}{2} \\
+    \ganttbar{\#04}{2}{2} \\
+    \ganttbar{\#05}{2}{2} \\
+    \ganttbar{\#06}{2}{2} \\
+    \ganttbar{\#07}{3}{3} \\
+    \ganttbar{\#08}{3}{3} \\
+    \ganttbar{\#09}{4}{7} \\
+    \ganttbar{\#10}{4}{4} \\
+    \ganttbar{\#11}{4}{4} \\
+    \ganttbar{\#12}{4}{4} \\
+    \ganttbar{\#13}{5}{7} \\
+    \ganttbar{\#14}{5}{7} \\
+    \ganttbar{\#15}{1}{7} \\
+    \ganttvrule{04/09/2023}{0}
+    \ganttvrule{17/09/2023}{1}
+    \ganttvrule{01/10/2023}{2}
+    \ganttvrule{15/10/2023}{3}
+    \ganttvrule{29/10/2023}{4}
+    \ganttvrule{12/11/2023}{5}
+    \ganttvrule{26/11/2023}{6}
+    \ganttvrule{10/12/2023}{7}
+\end{ganttchart}
+\legend{Fonte: o Autor}
+\end{center}
+\end{table}
+\end{landscape}
+
+\section{Segunda etapa}
+A segunda etapa de desenvolvimento está situada durante o período de 18 de março de 2024 até 07 de julho de 2024 e compreende as atividades da tabela \ref{table:Atividades de desenvolvimento 2}.
+
+\begingroup
+    \begin{table}[htbp]
+        \caption{Segunda etapa de desenvolvimento do game \textit{Math Hero}.}
+        \label{table:Atividades de desenvolvimento 2}
+    \begin{center}
+        \begin{tabular}{l l}
+            \toprule
+            \textbf{Id da tarefa} & \textbf{Atividade}\\
+            \midrule
+            \#16 & Mudança na mecânica de aprendizado das técnicas de cálculo mental\\
+            \rowcolor{Gray} \#17 & Sound design\\
+            \#18 & Level design\\
+            \rowcolor{Gray} \#19 & Escolha dos problemas matemáticos do modo história\\
+            \#20 & Criação da história do game\\
+            \rowcolor{Gray} \#21 & Criação do modo \textit{time attack}\\
+            \#22 & Mostra do game\\
+            \rowcolor{Gray} \#23 & Coleta de feedbacks\\
+            \#24 & Escrita da documentação do TCC\\
+        \end{tabular}
+        \legend{Fonte: o Autor}
+    \end{center}
+    \end{table}
+\endgroup
+
+O planejamento de distribuição das atividades, contando com as atividades ainda em aberto referentes a etapa 1 está descrito na tabela \ref{gantt:Cronograma TCC2}
+
+\newpage
+\begin{landscape}
+\begin{table}[htbp]
+    \caption{Cronograma de execução de tarefas.}
+    \label{gantt:Cronograma TCC2}
+\begin{center}
+\begin{ganttchart}[
+    expand chart=\paperwidth,
+    y unit chart=18,
+    group left shift=0,
+    group right shift=0,
+    group peaks height=0,
+    group label font=\footnotesize,
+    group/.append style={draw=black,fill=UnB_Verde},
+    bar height=.2,
+    bar/.append style={draw=none,fill=UnB_Azul},
+]{1}{8}
+    \gantttitle{\textbf{Cronograma de tarefas -- \textit{Math Hero}}}{8} \\
+    \gantttitlelist{"Sprint 1","Sprint 2","Sprint 3","Sprint 4","Sprint 5","Sprint 6","Sprint 7","Sprint 8"}{1} \\
+    \ganttbar{\#16}{1}{2} \\
+    \ganttbar{\#17}{2}{3} \\
+    \ganttbar{\#18}{2}{3} \\
+    \ganttbar{\#19}{4}{4} \\
+    \ganttbar{\#20}{4}{4} \\
+    \ganttbar{\#21}{5}{6} \\
+    \ganttbar{\#22}{6}{6} \\
+    \ganttbar{\#23}{7}{7} \\
+    \ganttbar{\#24}{1}{8} \\
+    \ganttvrule{18/03/2024}{0}
+    \ganttvrule{01/04/2024}{1}
+    \ganttvrule{15/04/2024}{2}
+    \ganttvrule{29/04/2024}{3}
+    \ganttvrule{13/05/2024}{4}
+    \ganttvrule{27/05/2024}{5}
+    \ganttvrule{10/06/2024}{6}
+    \ganttvrule{24/06/2024}{7}
+    \ganttvrule{08/07/2024}{8}
+\end{ganttchart}
+\legend{Fonte: o Autor}
+\end{center}
+\end{table}
+\end{landscape}

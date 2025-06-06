@@ -1,0 +1,130 @@
+\begin{apendicesenv}
+
+\chapter{Implementação do \textit{Singleton GameManager}} \label{apendice: script GameManager}
+
+\begin{minted}
+[
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=Gray,
+fontsize=\footnotesize,
+linenos
+]
+{python}
+extends Node
+
+enum Game_Modes {Story=1, TimeAttack=2, Menu=0}
+enum Time_Attack_Modes {Competition=0, Practice=1, Normal=3}
+
+var game_mode: int = Game_Modes.Menu
+var time_limit: float = 0.0
+var skip_count: int = 0
+var tattack_options: Dictionary = {}
+var tattack_results: Dictionary = {}
+
+@onready var scene_tree = get_tree()
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+
+func change_scene(target_scene):
+	if not target_scene:
+		#print_debug("Target scene is null!")
+		
+		scene_tree.quit() # Quit game options was pressed
+	else:
+		#print_debug(target_scene)
+		scene_tree.change_scene_to_file(target_scene)
+\end{minted}
+
+% \chapter{\textit{Script} de definição da máquina de estados} \label{apendice: script state machine}
+
+% \begin{minted}
+% [
+% framesep=2mm,
+% baselinestretch=1.2,
+% bgcolor=Gray,
+% fontsize=\footnotesize,
+% linenos
+% ]
+% {python}
+% extends Node
+% class_name StateMachine
+
+% @export var initial_state: State
+
+% var current_state: State
+% var states: Dictionary = {}
+
+% func _ready():
+% 	for child in get_children():
+% 		if child is State:
+% 			states[child.name.to_lower()] = child
+% 			child.Transition.connect(on_child_transition)
+		
+% 		if initial_state:
+% 			initial_state.Enter()
+% 			current_state = initial_state
+
+% func _process(delta: float):
+% 	if current_state:
+% 		current_state.Update(delta)
+
+% func _physics_process(delta: float):
+% 	if current_state:
+% 		current_state.Physics_Update(delta)
+
+% func on_child_transition(state: State, new_state_name: String):
+% 	if state.name.to_lower() != current_state.name.to_lower():
+% 		return
+
+% 	var new_state = states.get(new_state_name.to_lower())
+% 	if !new_state:
+% 		return
+	
+% 	if current_state:
+% 		current_state.Exit()
+
+% 	new_state.Enter()
+% 	current_state = new_state
+% \end{minted}
+
+% \chapter{\textit{Script} de template de um estado} \label{apendice: state template}
+% \begin{minted}
+% [
+% framesep=2mm,
+% baselinestretch=1.2,
+% bgcolor=Gray,
+% fontsize=\footnotesize,
+% linenos
+% ]
+% {python}
+% extends Node
+% class_name State
+
+% signal Transition
+
+% func Enter():
+% 	pass
+
+% func Exit():
+% 	pass
+
+% func Update(_delta: float):
+% 	pass
+
+% func Physics_Update(_delta: float):
+% 	pass
+% \end{minted}
+
+\chapter{\textit{Tilemap} do modo \textit{time attack}} \label{apendice: tilemap tattack}
+\begin{figure}[h]
+    \centering
+    \caption{\textit{Tilemap} de artes para construção visual do modo \textit{time attack}}
+    \includegraphics[width=220pt, keepaspectratio]{figuras/tilemap-tattack.pdf}
+    \label{fig:tilemap time attack}
+    \legend{Fonte: o Autor}
+\end{figure}
+
+\end{apendicesenv}

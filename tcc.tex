@@ -1,0 +1,86 @@
+\documentclass[12pt,openright,oneside,a4paper,english,french,spanish,table,xcdraw]{abntex2}
+
+% Pacotes
+\usepackage{cmap}	
+\usepackage{lmodern}	
+\usepackage[T1]{fontenc}	
+\usepackage[utf8]{inputenc}		
+\usepackage{lastpage}		
+\usepackage{indentfirst}
+\usepackage{color, colortbl}
+\usepackage{graphicx}	
+\usepackage{units}
+\usepackage[brazilian,hyperpageref]{backref}
+\usepackage{bold-extra}
+\usepackage{eso-pic}
+\usepackage{tabularx}
+\usepackage[alf]{abntex2cite}
+\usepackage{pgfgantt}
+\usepackage{pdflscape}
+\usepackage{mdframed}
+\usepackage{minted}
+\usepackage{dirtree}
+\usepackage{float}
+\usepackage{adjustbox}
+\usepackage{fontawesome5}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{amsfonts}
+\usepackage{caption}
+\usepackage{subcaption}
+\geometry{a4paper, margin=1in}
+
+\usepackage{fixos/customizacoes}
+
+% Custom colors
+\definecolor{LightBlue}{rgb}{0.67,0.82,1}
+\definecolor{Gray}{gray}{0.9}
+\definecolor{White}{rgb}{1,1,1}
+\definecolor{UnB_Azul}{HTML}{003366}
+\definecolor{UnB_Verde}{HTML}{006633}
+
+\input{fixos/comandos}
+\input{editaveis/informacoes}
+\input{fixos/informacoes}
+\input{fixos/setup}
+
+\begin{document}
+
+    \frenchspacing 
+    \imprimircapa
+    \imprimirfolhaderosto
+
+    \input{fixos/fichaCatalografica.tex}
+    %\input{editaveis/errata.tex}
+    \input{fixos/folhaDeAprovacao.tex}
+    \input{editaveis/dedicatoria.tex}
+    \input{editaveis/agradecimentos.tex}
+    \input{editaveis/epigrafe.tex}
+    \input{editaveis/resumo.tex}
+    \input{editaveis/abstract.tex}
+    \input{fixos/listasAutomaticas.tex}
+    \input{editaveis/abreviaturas.tex}
+    % \input{editaveis/simbolos.tex}
+    \input{fixos/indiceAutomatico.tex}
+
+    \textual
+
+    \input{editaveis/introducao.tex}
+    \input{editaveis/referencialteorico.tex}
+    \input{editaveis/metodologia-cronograma-resultados/metodologia.tex}
+    \input{editaveis/metodologia-cronograma-resultados/resultados.tex}
+    % \input{editaveis/metodologia-cronograma-resultados/cronograma.tex}
+    \input{editaveis/conclusao-e-consideracoes-finais/conclusao.tex}
+
+    \bookmarksetup{startatroot} 
+
+    %\postextual
+
+    \bibliography{bibliografia} 
+    %\input{editaveis/anexos.tex}
+    \input{editaveis/apendices.tex}
+    %\printindex
+
+\end{document}
+

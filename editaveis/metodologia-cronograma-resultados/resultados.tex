@@ -1,0 +1,465 @@
+\chapter[Resultados]{Resultados} \label{chapter:Resultados}
+
+O objetivo deste capítulo é realizar a exposição dos resultados obtidos por meio da realização deste trabalho, com ênfase nos objetivos alcançados. Os tópicos apresentados estão ordenados com base na execução das tarefas do projeto, sendo elas a \nameref{section:requisitosResultados}, o \nameref{section:gameDesignResultados}, o \nameref{section:desenvolvimentoResultados} e o \nameref{section:playtestingResultados}. As últimas seções, denominadas \nameref{section:Semex2024} e \nameref{section:Analise pos implementacao}, apresentam os resultados obtidos por meio da utilização do \textit{game} Math Hero em trabalhos realizados durante a semana de extensão da UnB no ano de 2024.
+
+\section{Elicitação de requisitos} \label{section:requisitosResultados}
+
+Na etapa de elicitação dos requisitos do projeto foi utilizada a técnica MoSCoW de priorização para definição da priorização de tarefas de desenvolvimento. Com base nos parâmetros da técnica, foram definidos, inicialmente, os requisitos descritos no Quadro \ref{quadro:Quadro de requisitos do Game Math Hero}.
+
+\begingroup
+    \begin{quadro} 
+    \caption{Requisitos iniciais do \textit{Game} Math Hero.}
+    \label{quadro:Quadro de requisitos do Game Math Hero}
+    \begin{center}
+        \begin{tabularx}{\linewidth}{|X|c|}
+            \hline
+            Requisito & Priorização \\
+            \hline
+            O \textit{game} Math Hero deve possuir código aberto & \textit{Must Have} \\
+            \rowcolor{Gray} O \textit{game} Math Hero deve facilitar a adição de plugins e personalizações & \textit{Should Have}\\
+            O \textit{game} Math Hero deve utilizar artes 2D & \textit{Must Have} \\
+            \rowcolor{Gray} O \textit{game Math Hero} deve possuir boa didática & \textit{Must Have}\\
+            O \textit{game} Math Hero deve utilizar linguagem acessível ao público alvo & \textit{Must Have} \\
+            \rowcolor{Gray} O \textit{game} Math Hero deve possuir um Modo história para aprendizado de técnicas de matemática mental & \textit{Must Have} \\
+            O \textit{game} Math Hero deve possuir um modo \textit{Time Attack} para competições entre jogadores & \textit{Must Have} \\
+            \rowcolor{Gray} O \textit{game} Math Hero deve ser multiplataforma (mobile e desktop) & \textit{Should Have} \\
+            O \textit{game} Math Hero não deve ter monetização associada & \textit{Must Have} \\
+            \rowcolor{Gray} O \textit{game} Math Hero deve possuir um modo tutorial para aprendizado das mecânicas do \textit{game} & \textit{Should Have} \\
+            O \textit{game} Math Hero deve ensinar técnicas de matemática mental & \textit{Must Have} \\
+            \hline
+        \end{tabularx}
+        \legend{Fonte: o Autor}
+    \end{center}
+    \end{quadro}
+\endgroup
+
+Como o processo de desenvolvimento de um jogo guiado pela engenharia de games é iterativo, ocorreram, ao longo do desenvolvimento do jogo, ocorreram, ao longo do desenvolvimento do jogo, mudanças nos requisitos descritos no Quadro \ref{quadro:Quadro de requisitos do Game Math Hero}. Foram removidos os requisitos referentes ao desenvolvimento do modo história do jogo, sendo eles: 
+\begin{itemize}
+    \item o \textit{game} Math Hero deve possuir boa didática; 
+    \item o \textit{game} Math Hero deve possuir um modo história para aprendizado de técnicas de matemática mental;
+    \item o \textit{game} Math Hero deve possuir um modo tutorial para aprendizado das mecânicas do game; e
+    \item o \textit{game} Math Hero deve ensinar técnicas de matemática mental.
+\end{itemize}
+
+Desde a versão inicial foi feita a transposição dos requisitos para tarefas que pudessem ser priorizadas e organizadas em um quadro de planejamento, além da criação do \textit{roadmap} do projeto, Estas tarefas e estes quadros foram atualizados e adaptados ao longo de todo o desenvolvimento, para refletir as decisões e adaptações necessárias.
+
+\section{Game Design} \label{section:gameDesignResultados}
+\begin{citacao}
+``Frequentemente quando estivermos fazendo um game, começamos inserindo um objetivo ao qual o jogador deve alcançar. Mas, como levar o jogador do inicio do game até este objetivo, e mais importante, como fazer com que o jogador se divirta na jornada, é onde a parte complexa, mas divertida, começa'' \cite[min 1:10, tradução nossa]{brackeys_basic_2018}.\footnote{``\textit{Often when making a game, you start by setting a goal that the player has to acheive. But how to get the player from the beggining of the game and towards that goal, and most importantly, how to get the player to enjoy this journey, is where the tricky, and also fun part, comes into play}''}    
+\end{citacao}
+
+Na fase de \textit{game design} foi definido que o game Math Hero possuiria 2 modos jogáveis: um modo história, onde o jogador percorre um mundo fictício repleto de atividades relacionadas à matemática, onde por meio do aprendizado e aplicação de técnicas de matemática mental, o jogador poderia melhorar suas habilidades matemáticas e se divertir ao mesmo tempo; e um modo \textit{time attack}, que seria principalmente para competições, contendo métricas de números de erros e tempo gasto, mas também tem o intuito de estimular que os jogadores utilizem habilidades de matemática mental para solucionar questões matemáticas relacionadas às quatro operações básicas: adição, subtração, divisão e multiplicação.
+
+\subsection{Modo história}
+ Para o modo história do game foi definido como objetivo final do jogador: participar de um duelo matemático com um cientista maluco (Figura \ref{fig:cientista maluco}) para que ele pare com a loucura das expressões ``proibidas''. Para isso, o jogador deveria percorrer o laboratório do Professor R para retirar dali todos os seguidores do cientista maluco e recuperar o laboratório do professor, que está cheio de expressões matemáticas proibidas escritas em seus quadros (como divisões por zero, por exemplo).
+
+\begin{figure}[h]
+    \centering
+    \caption{Versão inicial do vilão do game \textit{Math Hero}}
+    \includegraphics[width=120pt, keepaspectratio]{figuras/cientista_maluco.pdf}
+    \label{fig:cientista maluco}
+    \legend{Fonte: o Autor}
+\end{figure}
+
+Por meio da conversa com os robôs (Figura \ref{fig:robos}) de ajuda do Professor R, o jogador aprenderia técnicas de matemática mental úteis no dia a dia, e também valiosas para superar os obstáculos (como portas travadas, enigmas nos quadros, itens trancados com senha, e mais) deixados pelos seguidores do cientista maluco nas salas do laboratório do Professor R.
+
+\begin{figure}[h]
+    \centering
+    \caption{Versão inicial dos robôs de ajuda do game \textit{Math Hero}}
+    \includegraphics[width=120pt, keepaspectratio]{figuras/robos.pdf}
+    \label{fig:robos}
+    \legend{Fonte: o Autor}
+\end{figure}
+
+Depois de definir o objetivo final e a jornada do jogador, foi preciso definir o estilo de arte, para que o game fosse atrativo para crianças e adolescente do ensino básico brasileiro. O estilo de arte escolhido foi o \textit{pixel art}, que traz facilidade de assimilação por parte dos jogadores por proporcionar simplicidade visual ao usuário final, além de facilitar a criação e animação dos \textit{assets} do game. O peronsagem principal (Figura \ref{fig:personagem principal}) do game é um(a) jovem aprendiz do Professor R.
+
+
+\begin{figure}[h]
+    \centering
+    \caption{Versão inicial do personagem principal do game \textit{Math Hero}}
+    \includegraphics[width=120pt, keepaspectratio]{figuras/personagem_principal.pdf}
+    \label{fig:personagem principal}
+    \legend{Fonte: o Autor}
+\end{figure}
+
+Na fase de level design do protótipo do game \textit{Math Hero}, a primeira etapa foi a criação e busca de \textit{assets} provisórios para desenvolver rapidamente as mecânicas propostas pela fase de elicitação de requisitos e de game design. O primeiro passo desta etapa foi a criação do \textit{sprite} do personagem principal do jogo utilizando o software Aseprite\footnote{\hyperlink{https://www.aseprite.org/}{https://www.aseprite.org/}}. Em seguida, foi necessário realizar a busca de um \textit{tilemap} provisório que atendesse às necessidades levantadas nos requisitos. Buscando por palavras chave como “2D, \textit{Science}, \textit{Lab} e \textit{Robots}”, foi possível encontrar um \textit{tilemap} que supriu as necessidades momentâneas do \textit{game} (Figura \ref{fig:tilemap-provisorio}).
+
+\begin{figure}[h]
+    \centering
+    \caption{Tilemap provisório}
+    \includegraphics[width=240pt, keepaspectratio]{figuras/tilemap-provisorio.pdf}
+    \label{fig:tilemap-provisorio}
+    \legend{Fonte: o Autor}
+\end{figure}
+
+% TODO
+A implementação do modo história avançou até a criação da fase tutorial, o que viabilizou a realização de duas sessões de \textit{playtesting} e a coleta de sugestões e opiniões relativas ao rumo a ser seguido no desenvolvimento deste modo. A continuação da implementação desse modo foi postergada para focar na implementação do modo de treino do \textit{time attack}, dada a oportunidade de aplicar o jogo durante a Semana de Extensão 2024 da UnB no evento ``Torneio de Matemática Mental 2024'' descrito na seção \nameref{section:Semex2024}.
+
+Com isso, na versão \textit{competition version}, o modo história está desabilitado e seus \textit{assets} foram removidos do projeto temporariamente, tendo em vista a diminuição do tamanho do arquivo executável do jogo, permitindo assim que o \textit{game} fosse instalado em máquinas com poucos recursos. Em trabalhos futuros envolvendo o Math Hero, o modo história deverá ser implementado levando em consideração os requisitos iniciais do projeto, para que o propósito do \textit{game} seja mantido.
+
+\subsection{Modo \textit{Time Attack}}
+No modo \textit{Time Attack} foi definido que existiriam 3 modos diferentes de jogo: normal, treinamento e competição. O modo normal contaria com todas as funcionalidades existentes no modo de jogo \textit{time attack}, porém não seria customizável e geraria cerca de 15 operações randômicas para o jogador. Já o modo treinamento possuiria a opção de selecionar quais operações ele deseja praticar e a \textit{seed} geradora das questões. Vale ressaltar também que nos modos citados acima o cronômetro seria desligado e os resultados não seriam salvos nem localmente nem em banco de dados próprio do \textit{game}.
+
+O modo competição, que é o alvo principal de estudo deste trabalho, seria customizável e rastreável, contendo as seguintes opções: seleção de tipos de operações, inserção de \textit{seed} geradora de questões aleatórias e armazenamento de resultados em um arquivo local ao computador. Foi planejado para um trabalho futuro o armazenamento em banco de dados em nuvem, para fácil acesso e coleta dos dados, tendo em vista que a coleta de dados é dificultada pelo deslocamento até o computador no qual o \textit{game} foi jogado.
+
+Em relação aos \textit{assets} utilizados no \textit{game design} do modo \textit{time attack}, foram obtidas inspirações imagens de telas de computadores antigos, e imagens de games que utilizam \textit{pixel art} como: Celeste\footnote{\hyperlink{https://www.celestegame.com/}{https://www.celestegame.com/}}, Shovel Knight\footnote{\hyperlink{https://www.yachtclubgames.com/games/shovel-knight-treasure-trove/}{https://www.yachtclubgames.com/games/shovel-knight-treasure-trove/}} e Fez\footnote{\hyperlink{https://store.steampowered.com/app/224760/FEZ/}{https://store.steampowered.com/app/224760/FEZ/}}.
+
+% TODO
+Dentre as três modalidades de \textit{time attack} inicialmente planejadas (modo competição, modo normal e modo treino), apenas uma mescla entre o modo treino e o modo competição foi implementada até o momento. O modo treino compartilha com o modo competição apenas a inserção de uma \textit{seed} para padronização dos resultados e a coleta dos dados após a finalização da resolução da sequência de expressões. As características não compartilhadas com o modo competição são: a ausência de penalidades para erros, a configuração livre de operações e não coletar os dados de jogo.
+
+Para a separação completa entre os dois modos de jogo, seria necessária a detecção do parâmetro de modo de jogo para que, ao selecionar o modo treino, as penalidades sejam desabilitadas, a configuração livre de operações seja possível e a coleta dos dados de jogo seja desabilitada. Já quando o parâmetro de modo de competição for selecionado, todas essas opções devem ser habilitadas, com exceção da livre configuração de operações, tendo em vista que a configuração de operações seria feita automaticamente, de acordo com a \textit{seed} da competição, facilitando assim a configuração do ambiente de competição e garantindo um ambiente justo e igual para todos os competidores.
+
+\section{Implementação} \label{section:desenvolvimentoResultados}
+
+A escolha da utilização da língua inglesa para o nome do jogo teve como motivação principal a intenção do lançamento do \textit{game} em plataformas digitais como o Itch.io e a Steam, facilitando a disseminação do jogo mundialmente.
+
+A primeira etapa da implementação foi a criação dos \textit{scripts} do \textit{game} utilizando a linguagem de \textit{scripting} própria da \textit{game} \textit{engine} escolhida, a \textit{GDScript}. Anteriormente, foi realizado estudo de boas práticas atreladas à linguagem e à Godot por meio de vídeos educativos propostos pela comunidade e pela documentação oficial da Godot.
+
+Em seguida, a próxima etapa realizada foi relacionada à implementação das mecânicas. Utilizando as boas práticas e a documentação da Godot \cite{godot_docs}, foi possível realizar a criação de \textit{scripts} específicos para a implementação de padrões arquiteturais de código, como o \textit{singleton} \textit{GameManager}, pode ser visualizado no Apêndice \ref{apendice: script GameManager}. %cada um dos modelos do game: personagem controlável (jogador), inimigo, NPC amigável e por fim, uma máquina de estados que tratará cada modelo que possuir mais de um estado que necessita de fluxos de controle próprios e de personalização de ações como movimentação (controlada pelo jogador ou via software), conversa, interações e etc. Os \textit{scripts} de controle do personagem, máquina de estados e o \textit{template} de estado podem ser encontrados nos Apêndices \ref{apendice: script character}, \ref{apendice: script state machine} e \ref{apendice: state template}, respectivamente.%
+
+%Remover scripts relacionados ao desenvolvimento do modo historia e adicionar scripts relevantes para o modo treino% 
+
+A estrutura de organização de arquivos definida para o projeto é apresentada pela Figura \ref{fig:estrutura-pastas}.
+A pasta \texttt{docs} contém toda a documentação do game gerada à partir da ferramenta \texttt{docsify}. A pasta \texttt{media} contém 4 subdivisões relacionadas à arquivos de mídia do jogo, sendo elas: \texttt{art}, que está relacionada aos \texttt{assets} de arte criados para o \textit{game}; \texttt{fonts}, que contém todos os arquivos de fontes necessários para as interfaces de usuário; \texttt{music}, que contém trilhas sonoras, música ambiente; e \texttt{sfx}: que contém todos os arquivos relativos aos efeitos sonoros. 
+
+\begin{figure}[h]
+    \centering
+    \caption{Estrutura de pastas Math Hero}
+    \includegraphics[width=240pt, keepaspectratio]{figuras/Estrutura de arquivos Math Hero.pdf}
+    \label{fig:estrutura-pastas}
+    \legend{Fonte: o Autor}
+\end{figure}
+
+A pasta \texttt{scenes} contém os arquivos com extensão \texttt{*.tscn} relativos às \textit{scenes} das diferentes fases do \textit{game}. Por último, a pasta \texttt{scripts} é a pasta que contém todos os \textit{scripts} escritos em \textit{GDScript}.
+
+Para a versão \textit{alpha} do \textit{game} o modo \textit{time attack} e seu modo de competição foram alvo do planejamento da implementação. Porém, a implementação real consistiu em fazer a produção de um mínimo produto viável (MVP) específico para os eventos descritos na seção \nameref{section:Semex2024}. O modo implementado, denominado modo de treino, possui uma versão inicial daquilo que foi planejado para o modo de competição contendo a inserção de \textit{seeds} para randomização e padronização das expressões a serem resolvidas pelo jogador, o registro de dados pertinentes ao modo de competição como: tempo decorrido, operações habilitadas e nome identificador; e a seleção da dificuldade de resolução das expressões. 
+
+A priorização do modo de treino deu-se pela emergente oportunidade de aplicação e validação do modelo e temática do jogo por meio de atividades como a \textit{SEMEX 2024} da UnB, onde foi proposto e planejado que o \textit{game} fosse utilizado para promover uma pequena competição matemática entre os participantes inscritos.
+
+\subsection{\textit{Time Attack}}
+
+Para desenvolver o modo \textit{time attack} do \textit{game}, primeiro fez-se necessário mapear os tipos de expressões para então definir as propriedades a serem utilizadas pelo jogador ao jogar este modo. As operações definidas, bem como suas propriedades, foram a adição, a subtração, a multiplicação e a divisão. As características referentes a cada operação e suas propriedades estão descritas nas Tabelas \ref{ops:add}, \ref{ops:sub}, \ref{ops:mul} e \ref{ops:div} respectivamente.
+
+% TODO
+Em todas as tabelas, foram consideradas apenas operações que geram resultados inteiros e positivos, isto é, com resultado $x \in \mathbb{Z}$ e $x \geq 0$.
+Na Tabela \ref{ops:add} estão separados os tipos de expressões de adição definidas para o modo \textit{time attack}. Levando em consideração expressões do tipo: $a+b=x$, a coluna ``Número de dígitos das parcelas'' representa o número de dígitos de cada parcela \textit{a} e \textit{b} e a coluna ``Vai um'' representa a utilização, ou não, da propriedade de ``vai um'' que ocorre quando a soma dos dígitos de centena, dezena ou unidade é maior ou igual a 10.
+
+\begin{table}[htbp]
+\begin{center}
+    \caption{Expressões disponíveis para a operação de adição}
+    \label{ops:add}
+    %\begin{tabular}{|c|c|}
+    \begin{tabular}{c|c}
+    \hline
+    \textbf{Número de dígitos das parcelas} & \textbf{``vai um''} \\
+    \hline
+        1 & \textcolor{red}{\faTimes} \\
+        \hline
+        1 & \textcolor{green!60!black}{\faCheck} \\
+        \hline
+        2 & \textcolor{red}{\faTimes} \\
+        \hline
+        2 & \textcolor{green!60!black}{\faCheck} \\
+        \hline
+        3 & \textcolor{red}{\faTimes} \\
+        \hline
+        3 & \textcolor{green!60!black}{\faCheck} \\
+    \hline
+    \end{tabular}
+    \legend{Fonte: o Autor}
+\end{center}
+\end{table}
+
+Já na Tabela \ref{ops:sub} estão dispostos os tipos escolhidos de expressões de subtração com base no modelo $a-b=x$. As colunas ``Dígitos de $a$'' e ``Dígitos de $b$'' representam a quantidade de dígitos de cada parcela \textit{a} e \textit{b} do modelo. A coluna ``Propriedade'' representa a propriedade utilizada nas parcelas \textit{a} e \textit{b} da expressão, um ``-'' representa que nenhuma propriedade especial foi utilizada. Por fim, a coluna ``Pegar emprestado'' representa a utilização, ou não, da propriedade de ``pegar emprestado'' ao solucionar a expressão. Essa propriedade ocorre quando a subtração de um dos dígitos de centena, dezena ou unidade representaria um resultado negativo, assim fazendo-se necessário ``pegar emprestado'' do dígito subsequente.
+
+\begin{table}[htbp]
+\begin{center}
+    \caption{Expressões $a - b$ disponíveis para a operação de subtração}
+    \label{ops:sub}
+    \begin{tabular}{c|c|c|c}
+    \hline
+    \textbf{Dígitos de $a$} & \textbf{Propriedade} & \textbf{Dígitos de $b$} &  \textbf{``pegar emprestado''} \\
+    \hline
+        1 & - & 1 & \textcolor{red}{\faTimes} \\
+        \hline
+        2 & Múltiplo de 10 & 1 & \textcolor{green!60!black}{\faCheck} \\
+        \hline
+        2 & - & 1 & \textcolor{red}{\faTimes} \\
+        \hline
+        2 & - & 1 & \textcolor{green!60!black}{\faCheck} \\
+        \hline
+        3 & Múltiplo de 100 & 2 & \textcolor{green!60!black}{\faCheck} \\
+        \hline
+        3 & - & 2 & \textcolor{red}{\faTimes} \\
+        \hline
+        4 & Múltiplo de 1000 & 3 & \textcolor{green!60!black}{\faCheck} \\
+        \hline
+        3 & - & 2 & \textcolor{green!60!black}{\faCheck} \\
+    \hline
+    \end{tabular}
+    \legend{Fonte: o Autor}
+\end{center}
+\end{table}
+
+Na Tabela \ref{ops:mul} foram expostos os tipos de expressões de multiplicação escolhidos para a implementação. Usando o modelo $a \times b = x$, as colunas ``Dígitos de $a$'' e ``Dígitos de $b$'' representam a quantidade de dígitos em cada uma das parcelas \textit{a} e \textit{b} da expressão. A coluna ``Propriedade'' apresenta as propriedades especiais utilizadas na expressão, e um ``-'' informa que nenhuma propriedade especial foi utilizada. Na coluna ``Vai um'', está representado a utilização, ou não, da propriedade de ``vai um'' na solução.
+
+\begin{table}[htbp]
+\begin{center}
+    \caption{Expressões $a \times b$ disponíveis para a operação de multiplicação}
+    \label{ops:mul}
+    \begin{tabular}{c|c|c|c}
+    \hline
+    \textbf{Dígitos de $a$} & \textbf{Propriedade} & \textbf{Dígitos de $b$} &  \textbf{``Vai um''} \\
+    \hline
+        1 & - & 1 & \textcolor{red}{\faTimes} \\
+        \hline
+        2 & $a = 11$ & 1 & \textcolor{green!60!black}{\faCheck} \\
+        \hline
+        2 & $a = 11$ & 2 & \textcolor{red}{\faTimes} \\
+        \hline
+        2 & $a = 11$ & 2 & \textcolor{green!60!black}{\faCheck} \\
+        \hline
+        2 & com 5 na unidade & 2 & \textcolor{green!60!black}{\faCheck} \\
+        \hline
+        2 & com 5 na dezena & 2 & \textcolor{green!60!black}{\faCheck} \\
+        \hline
+        3 & - & 2 & \textcolor{green!60!black}{\faCheck} \\
+        \hline
+        2 & $a = 11$ & 3 & \textcolor{red}{\faTimes} \\
+        \hline
+        2 & $a = 11$ & 3 & \textcolor{green!60!black}{\faCheck} \\
+        \hline
+        2 & - & 2 & \textcolor{green!60!black}{\faCheck} \\
+        \hline
+        3 & - & 3 & \textcolor{green!60!black}{\faCheck} \\
+    \hline
+    \end{tabular}
+    \legend{Fonte: o Autor}
+\end{center}
+\end{table}
+
+Por último, na Tabela \ref{ops:div} estão expostas as propriedades e o número de dígito de cada parcela de expressões do tipo: $a \div b = x$. onde a coluna ``Propriedade'' representa a utilização ou não de propriedades especiais na expressão.
+
+\begin{table}[htbp]
+\begin{center}
+    \caption{Expressões $a \div b$ disponíveis para a operação de divisão}
+    \label{ops:div}
+    \begin{tabular}{c|c|c}
+    \hline
+    \textbf{Dígitos de $a$} & \textbf{Propriedade} & \textbf{Dígitos de $b$}  \\
+    \hline
+        2 & - & 1 \\
+        \hline
+        2 & - & 2 \\
+        \hline
+        3 & - & 2 \\
+        \hline
+        2 & $b = 5$ & 1 \\
+        \hline
+        3 & - & 1 \\
+    \hline
+    \end{tabular}
+    \legend{Fonte: o Autor}
+\end{center}
+\end{table}
+
+\subsubsection{Escolha das referências}
+Conforme desenvolvimento do modo de jogo \textit{Time Attack}, foram utilizadas referências ``retrô'' para a criação dos \textit{assets} necessários para a criação da tela. Uma das principais referências foi a de telas de computador monocromáticas verdes, como pode ser observado na Figura \ref{fig:green pc screen}.
+
+\begin{figure}[h]
+    \centering
+    \caption{Tela de PC monocromática verde}
+    \includegraphics[height=240pt, keepaspectratio]{figuras/green pc screen.pdf}
+    \label{fig:green pc screen}
+    \legend{Fonte: Google Imagens}
+\end{figure}
+
+Também foi necessário selecionar a paleta de cores correspondente e realizar a criação dos \textit{assets} no software de criação de \textit{sprites} \textit{Aseprite}. A paleta de cores (Figura \ref{fig:pallete gameflower green}) escolhida tem o nome de \textit{Gameflower green} e foi obtida do site \href{https://lospec.com/}{lospec.com}.
+
+\begin{figure}[h]
+    \centering
+    \caption{Paleta de cores \textit{Gameflower green}}
+    \includegraphics[width=320pt, keepaspectratio]{figuras/pallete GameFlower Green.pdf}
+    \label{fig:pallete gameflower green}
+    \legend{Fonte: lospec.com}
+\end{figure}
+
+Com a utilização dessa paleta de cores, foi possível criar os \textit{assets} e renui-los no \textit{tileset} representado no Apêndice \hyperref[apendice: tilemap tattack]{\textit{Tilemap} do Modo \textit{Time Attack}}. Assim, unindo as referências buscadas à paleta de cores escolhida, a interface de batalha de matemática foi evoluída para a imagem apresentada na Figura \ref{fig:tela time attack}.
+
+\begin{figure}[h]
+    \centering
+    \caption{Tela do modo Time Attack}
+    \includegraphics[width=320pt, keepaspectratio]{figuras/Time attack screen.pdf}
+    \label{fig:tela time attack}
+    \legend{Fonte: o Autor}
+\end{figure}
+
+O primeiro protótipo da funcionalidade de batalha de matemática, que faria parte do modo história, pode ser visto na Figura \ref{fig:batalha matematica}. Conforme implementação do modo de treino, utilizado na \textit{SEMEX 2024} (Figura \ref{fig:versao competicao tattack}), o modo \textit{time attack} recebeu elementos gráficos que representam o tempo decorrido, a quantidade de erros, um teclado numérico para representação visual da seleção dos números, a \textit{seed} do jogo e as instruções visuais pertinentes ao modo, como o botão ``ENTER'' para confirmar o resultado da expressão e o botão ``ESC'' para pular a expressão atual e ir para a próxima, com uma penalidade de 30 segundos ao tempo final.%Conforme o progresso do desenvolvimento do game, a estilização, bem como novas regras foram adicionadas na batalha de matemática, para que a mesma interface seja utilizada tanto no modo quanto no modo \textit{Time Attack}. A utilização da mesma interface traz benefícios para a jogabilidade por proporcionar ao jogador uma interface simples e familiar em ambos os modos para que sua utilização e transição entre os diferentes modos de jogo seja a mais suave possível.
+
+\begin{figure}[h]
+    \centering
+    \caption{Evolução da mecânica utilizada no \textit{time attack}}
+    \begin{subfigure}[b]{0.45\linewidth}
+        \centering
+        \caption{Protótipo de mecânica de batalha}
+        \includegraphics[width=210pt, keepaspectratio]{figuras/batalha_matematica.pdf}
+        \label{fig:batalha matematica}
+        \legend{Fonte: o Autor}    
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\linewidth}
+        \centering
+        \caption{\textit{time attack} versão competição}
+        \includegraphics[width=200pt, keepaspectratio]{figuras/Tela time attack.pdf}
+        \label{fig:versao competicao tattack}
+        \legend{Fonte: o Autor}    
+    \end{subfigure}
+\end{figure}
+
+\section{Playtesting} \label{section:playtestingResultados}
+
+A fase de \textit{playtesting} serviu como principal validadora da temática escolhida, mas também como medidor da aceitação da proposta do jogo. Nesta fase, foi importante aceitar todo tipo de \textit{feedbacks} e propostas de melhoria passadas pelos jogadores escolhidos para teste. Foram construídas duas personas fictícias, para preservação da identidade das pessoas, para realização do \textit{playtesting} e colheita de sugestões de melhorias, uma adolescente e uma adulta (Tabela \ref{table:personas playtesting 1}), e ambas jogaram a versão \textit{alpha} do jogo.
+
+\begingroup
+    \begin{table}[htbp]
+        \caption{Identificação das personas escolhidas para sessão de playtesting.}
+        \label{table:personas playtesting 1}
+    \begin{center}
+        \begin{tabular}{l c l}
+            \toprule
+            \textbf{Nome} & \textbf{Idade} & \textbf{\textit{Profissão}}\\
+            \midrule
+            Manuela & 15 & Estudante \\
+            \rowcolor{Gray} Pedro & 24 & Comunicador social\\
+            \hline
+        \end{tabular}
+        \legend{Fonte: o Autor}
+    \end{center}
+    \end{table}
+\endgroup
+
+\begin{figure}[h]
+    \centering
+    \caption{\textit{Scene} para realização de testes}
+    \includegraphics[width=330pt, keepaspectratio]{figuras/blocking math hero 1st level.pdf}
+    \label{fig:test level}
+    \legend{Fonte: o Autor}
+\end{figure}
+
+Durante a sessão de \textit{playtesting}, Manuela foi a principal fonte de coleta de dados e sugestões, visto que ela está dentro do público alvo e, portanto, traz uma visão do público alvo em relação ao produto final. A versão protótipo do game, representada pela Figura \ref{fig:test level}, possuia uma mecânica de movimentação limitada à fase em que o jogador se encontrava, além da mecânica de ``encontro'' com um NPC hostil, que chamava o jogador para uma batalha de matemática (Figura \ref{fig:batalha matematica}). As sugestões dadas por Manuela e Pedro após a sessão de \textit{playtesting}, e as observações feitas acerca do comportamento de ambos durante a sessão, estão descritas na Tabela \ref{table:feedbacks}.
+
+\begingroup
+    \begin{table}[htbp]
+        \caption{\textit{Feedbacks} dados pelas pessoas escolhidas para a sessão de \textit{playtesting}.}
+        \label{table:feedbacks}
+    \begin{center}
+        \begin{tabular}{l m{180pt} m{180pt}}
+            \toprule
+            \textbf{Nome} & \textbf{Sugestão} & \textbf{\textit{Observação}}\\
+            \midrule
+            Manuela & ``Achei muito entediante a batalha de matemática, seria legal se fosse tipo um \textit{escape room}, daí a pessoa precisaria de usar as técnicas pra encontrar pistas pra abrir as portas e passar de fase.''  & Jogadora iniciante mas teve facilidade na adequação aos controles. Sentiu falta de direcionamentos dados ao jogador \\
+            \rowcolor{Gray} Pedro & ``Achei boa a mecânica de batalha, mas bem lenta. Acho que poderia mudar ela e deixar tipo uma batalha com \textit{timer} rodando.'' & Jogador experiente. Sentiu falta de indicadores de progresso na fase.\\
+            \hline
+        \end{tabular}
+        \legend{Fonte: o Autor}
+    \end{center}
+    \end{table}
+\endgroup
+
+A principal sugestão foi fazer ajustes na jogabilidade para que o game se tornasse mais dinâmico, além de realizar ajustes na forma de progressão. A decisão tomada a partir dessa sugestão foi a de realizar um ajuste no game design para que o progresso se comportasse de forma similar à um ``\textit{escape room}'', onde os jogadores precisam encontrar pistas e solucionar problemas para progredir e, eventualmente, sair da sala onde se encontram atualmente para outra com novos desafios.
+
+Assim, foi possível planejar ajustes no \textit{game design}, para que o jogo seja mais atrativo para o usuário final e cumpra com o principal requisito de fortalecimento do aspecto lúdico do \textit{game}. Embora os ajustes e sugestões tenham sido levados em consideração na evolução da mecânica, elas não estão presentes no modo de treino, que foi desenvolvido como versão final deste trabalho, portanto a aplicação e coleta de novas sugestões e observações foram elencadas como tarefas para trabalhos futuros.
+
+\section{SEMEX 2024} \label{section:Semex2024}
+
+O \textit{game} Math Hero foi utilizado no evento ``Torneio de Matemática mental 2024'', entre os dias 04/11/2024 e 08/11/2024, no Campus UnB Gama: Faculdade de Ciências e Tecnologias em Engenharia. Foram ofertadas 60 vagas, onde 30 destas vagas foram destinadas ao turno matutino e as outras 30 ao turno vespertino. O evento foi guiado por um conjunto de regras básicas com a intenção de promover uma competição saudável e também como forma de padronizar a jogabilidade, fazendo com que os dados coletados fossem comparáveis
+As regras estabelecidas aos competidores em relação à execução do \textit{game} e ao comportamento de cada um dos competidores foram:
+
+\begin{enumerate}
+    \item O torneio de matemática mental é uma competição individual, onde os participantes se enfrentam, em turnos, para decidir quem consegue resolver problemas de adição, subtração, multiplicação e divisão mais rapidamente.
+    \item O programa utilizado pelos participantes é o Math Hero, software livre desenvolvido pelo estudante Matheus Pimentel Leal.
+    \item A cada rodada os participantes tentarão resolver 20 operações. As operações são as mesmas para todos os participantes: isto é garantido pela configuração prévia do modo competição. A organização do evento determinará qual será a configuração de cada rodada, e os participantes devem seguir as configurações à risca.
+    \item Caso o participante, por erro, descuido ou vontade própria, use uma configuração diferente da determinada pela organização, ele será eliminado da rodada, recebendo como tempo final 100 minutos.
+    \item Sendo uma competição individual, não é permitido, durante uma rodada, a comunicação com outros competidores ou o uso de calculadoras, celulares, internet, dispositivos eletrônicos ou papel e caneta. A violação desta regra implicará na desclassificação do competidor, que deverá deixar a competição.
+    \item A cada ciclo de duas rodadas serão classificados um certo número de competidores (a quantidade será divulgada pela organização a cada início de ciclo). Os não classificados deixam a competição.
+    \item A cada novo ciclo o nível de dificuldade das operações aumenta, partindo de iniciante até atingir o nível difícil.
+    \item A cada erro cometido o competidor adicionará uma penalidade de 30 segundos ao seu tempo final. Esta penalidade é computada automaticamente pelo Math Hero.
+    \item Caso o competidor deseje, ele pode saltar a operação atual, pagando uma penalidade de 5 minutos no seu tempo final.
+    \item O casos omissos serão tratados pela coordenação do evento.
+\end{enumerate}
+
+Em relação ao modelo da competição, foram definidas 3 etapas com 2 rodadas cada. Ao final da primeira rodada os 3 alunos com piores tempos foram eliminados e, ao final da segunda rodada, os 6 alunos com os piores tempos também foram eliminados. Dessa forma, na primeira rodada, pelo período da manhã, 31 alunos participaram da primeira rodada, 28 da segunda rodada e 22 da terceira rodada. E no período da tarde, 17 competidores participaram da primeira rodada, 14 da segunda rodada e, por último, 8 participaram da terceira rodada. 
+% 10 alunos foram eliminados a cada rodada. Assim, formando uma etapa final com 23 alunos, onde os 3 primeiros foram premiados com medalhas.
+
+O objetivo do evento ``Torneio de Matemática mental 2024'' era estimular a busca pelo conhecimento e desenvolvimento de técnicas facilitadoras para a realização de cálculos utilizando somente o fator mental, sem o auxílio de papéis, calculadoras ou quaisquer dispositivos que auxiliam na resolução de equações matemáticas.
+
+ Os alunos de uma escola de ensino médio do Gama foram convidados a participar do evento durante o período da manhã, como forma de incentivar e testar as habilidades dos mesmos em um ambiente lúdico. As técnicas de matemática mental apresentadas na Seção \nameref{section: matematica mental} do Capítulo \hyperref[chapter:Referencial Teórico]{Referencial Teórico} foram previamente ensinadas aos alunos com o auxílio de uma versão de testes do Math Hero. No total, 52 alunos participaram da competição. O resultado da competição na parte da manhã com os alunos de ensino médio pode ser observado por meio dos Tabela \ref{quadro: quadro de lideres manha}, que apresenta um ``top 10'' alunos ranqueados em ordem crescente pelo tempo total para resolução das expressões, no formato: $minutos:segundos:milissegundos$.
+ 
+\begin{table}[htbp]
+\centering
+\caption{Quadro de líderes de alunos de ensino básico treinados com as técnicas de matemática mental}
+\label{quadro: quadro de lideres manha}
+\rowcolors{2}{gray!15}{white}
+\begin{tabular}{l m{180pt} m{180pt}}
+\toprule
+\textbf{Posição} & \textbf{Nome}      & \textbf{Tempo Total} \\ \midrule
+1  & Aluna A  & \texttt{005:03.564}            \\
+2  & Aluna B  & \texttt{005:10.974}            \\
+3  & Aluno C  & \texttt{005:35.395}            \\
+4  & Aluna D  & \texttt{005:35.600}            \\
+5  & Aluno E  & \texttt{007:12.161}            \\
+6  & Aluno F  & \texttt{009:51.062}            \\
+7  & Aluna G  & \texttt{010:18.884}            \\ 
+8  & Aluno H  & \texttt{011:19.248}            \\ 
+9  & Aluno I  & \texttt{011:59.204}            \\ 
+10 & Aluna J  & \texttt{012:31.304}            \\  \bottomrule
+\end{tabular}
+\legend{Fonte: o Autor}
+\end{table}
+
+Como parâmetro de comparação, na parte da tarde a competição foi aberta ao público geral universitário, sem treinamento prévio de técnicas de matemática mental e sob as mesmas regras e estruturas utilizadas no período da manhã, para que fosse possível a análise do desempenho de pessoas sem instrução prévia sobre as técnicas de resolução mental. No período da tarde, no total compareceram 17 estudantes
+
+\begin{table}[htbp]
+\centering
+\caption{Quadro de líderes de alunos de ensino superior sem treinamento prévio com as técnicas de matemática mental}
+\rowcolors{2}{gray!15}{white}
+\begin{tabular}{l m{180pt} m{180pt}}
+\toprule
+\textbf{Posição} & \textbf{Nome}      & \textbf{Tempo Total} \\ \midrule
+1  & Competidor A  & \texttt{005:15.583}            \\
+2  & Competidor B  & \texttt{010:31.421}            \\
+3  & Competidora C  & \texttt{010:55.652}            \\
+4  & Competidor  D  & \texttt{011:04.054}            \\
+5  & Competidora E  & \texttt{014:50.528}            \\
+6  & Competidor F  & \texttt{015:28.875}            \\
+7  & Competidor G  & \texttt{015:52.297}            \\ 
+8  & Competidor H  & \texttt{070:00.000}            \\ \bottomrule
+\end{tabular}
+\legend{Fonte: o Autor}
+\end{table}
+
+Como podemos perceber, o desempenho dos alunos de ensino médio foi superior, considerando apenas o ``top 5'' de participantes no período da tarde e no período da manhã. O tempo médio para finalização das questões propostas dos ``\textit{top} 5'' participantes do período da manhã foi de: $5min 43s 539ms$. Já o tempo médio dos ``\textit{top} 5'' participantes do período da tarde foi de: $10min 31s 447ms$. Esta comparação sobre o desempenho de pessoas com e sem o conhecimento prévio reforça a validade da utilização de técnicas de matemática mental para a obtenção de resultados mais rápidos e corretos para expressões matemáticas. 
+
+% TODO
+O \textit{game} Math Hero teve um desempenho aceitável durante a realização do evento ``Torneio de matemática mental 2024''. Porém, algumas dificuldades foram encontradas, como a dificuldade de inserção das \textit{seeds} por parte de alguns alunos, fazendo com que alguns registros não fossem captados. Essa falha se deu por conta da funcionalidade de inserção manual das \textit{seeds}.
+
+Outro fato relevante foi a seleção de uma versão desatualizada do \textit{game} por parte de um estudante da turma de ensino médio, que foi o público do período da manhã. Esse fato se deu pela existência de uma versão do jogo instalada nos computadores do laboratório utilizado e de uma versão com atualizações de última hora que foi colocada na área de trabalho dos computadores do laboratório.
+
+De forma crítica, o resultado obtido pela utilização do jogo no evento foi satisfatório, mas com ressalvas. Melhorias nas funcionalidades do modo de treino e a criação do modo dedicado exclusivamente a competições foram as sugestões levantadas para realização de trabalhos futuros significativos para a evolução do software, além de proporcionar a realização de eventos com maior suavidade e menos dificuldades.
+
+% TODO
+\section{Análise pós-implementação} \label{section:Analise pos implementacao}
+% O texto ficou muito geral. Abra um pouco mais, em 4 ou 5 parágrafos, onde cada parágrafo foca em uma futura melhoria, falando o que ela seria, porque ela é importante, porque não foi implementada e como seria a implementação/relação dela com as já presentes e futuras
+A análise pós-implementação foi feita para que os pontos de dificuldade encontrados durante a utilização do \textit{game} Math Hero em competições de matemática mental tenham suas motivações encontradas e sanadas.
+
+% Separação dos modos treino e competição
+Na implementação atual do jogo, o modo implementado (modo \textit{time attack}) possui apenas uma modalidade, oriunda de uma mescla entre as modalidades de treino e de competição, utilizando características planejadas para ambos os modos. A separação completa entre as modalidades de competição e de treino inclui a adição de mais uma configuração de modo \textit{time attack}, que consiste em habilitar o cadastro prévio de \textit{seeds} de competição em um servidor remoto, para que, ao informar o código da competição como, por exemplo, ``\texttt{SEMEX2024}'', a \textit{seed} do jogo, juntamente com suas configurações de rodadas, sejam automaticamente carregadas, facilitando assim a configuração e utilização em eventos futuros. Esta funcionalidade não foi implementada devido a falta de organização prévia, dada urgência de utilização do \textit{game} no evento ``Torneio de matemática mental''. Com isso, optou-se por utilizar uma mescla entre as modalidades de treino e de competição levando em consideração a facilidade de implementação e a rapidez na entrega de um mínimo produto viável.
+
+% Adição de sistema de leaderboard de fácil acesso para competições
+Outra funcionalidade de suma importância para a utilização do \textit{software} em competições é a adição de um quadro de líderes que realize a exposição dos resultados, ordenados do menor tempo total até o maior tempo total. Este quadro de líderes teria facilitaria a organização e traria rapidez na divulgação dos resultados da rodada, bem como dos resultados finais.
+
+% Cadastro de seeds para competições
+Para melhorar consideravelmente a mão de obra necessária para realização de eventos, como o ``Torneio de matemática mental 2024'', é importante que seja implementado um cadastro de \textit{seeds} e de configurações de operações (habilitar ou não certas operações). Esse cadastro consiste em armazenar, remotamente, uma chave única para cada competição, bem como suas configurações, sendo elas: o número de rodadas, o tempo limite e as \textit{seeds} utilizadas em cada rodada.
+
+% Exportação do projeto para plataformas mobile
+Finalmente, para aumentar o alcance do jogo e fazer com que cada vez mais alunos do ensino básico e superior tenham acesso ao \textit{game}, será necessário exportar o jogo para plataformas como o Android e o iOS. Esta funcionalidade não foi implementada devido a falta de conhecimento prévio relacionado à publicação, aprovação e manutenção do software em lojas de aplicativos \textit{mobile}.

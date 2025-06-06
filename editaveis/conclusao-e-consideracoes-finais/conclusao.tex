@@ -1,0 +1,42 @@
+\chapter[Considerações finais]{Considerações Finais} \label{chapter:Conclusão e considerações finais}
+
+Este trabalho propôs um jogo do gênero educacional chamado Math Hero, com o objetivo de introduzir técnicas de cálculo mental para alunos do ensino básico brasileiro por meio de uma abordagem lúdica, para que o estudante possa aprender de forma criativa e leve. Ao desenvolver um \textit{serious game} que não deixa o aspecto lúdico de lado, os jogadores poderão sentir-se em uma atividade recreativa ao mesmo tempo que aprendem por meio do aspecto educacional. 
+
+Com a utilização das práticas recomendadas pela \textit{game software engineering} (GSE), o \textit{game} foi desenvolvido para ser relevante no meio pedagógico para o ensino de matemática. Os fatores de principal relevância foram a existência de modos de jogo que comportem tanto o ensino de técnicas de matemática mental quanto a utilização do jogo em competições que estimulem o aprendizado.
+
+A dificuldade do balanceamento entre os aspectos lúdicos e educacionais foi notável durante o desenvolvimento do game. Percebeu-se que a introdução do aspecto educacional em um \textit{game} causa resistência por parte do público alvo por gerar sensação de obrigação relacionada ao desempenho. Por meio de sessões de \textit{playtesting} foi possível coletar \textit{feedbacks} para planejar ajustes no design do jogo para reduzir a sensação de obrigação e trazer divertimento aos jogadores durante o jogo no modo história. Os ajustes programados na realização de trabalhos futuros foram a exclusão da mecânica de batalha de matemática e a inclusão de obstáculos para fazer o \textit{game} ser como um ``\textit{escape room}''.
+
+Outra dificuldade encontrada foi a escolha dos \textit{assets} do jogo. Esta escolha deve ser feita em concordância com os aspectos definidos no \textit{game design}, e por isso, muitas vezes os desenvolvedores optam por realizar a criação de \textit{assets} personalizados para cada game. Porém, com a restrição de tempo do projeto, não foi possível realizar a criação personalizada dos \textit{assets} para a solução visto a necessidade da validação do \textit{game design} proposto. Durante a procura de \textit{assets} personalizados, a barreira do preço de \textit{assets} disponibilizados no \textit{website icth.io} foi outra dificuldade que precisou ser superada.
+
+A utilização da GSE foi um fator de sucesso no desenvolvimento do \textit{game} pois proporcionou a padronização de métodos e escolha de ferramentas adequadas para a solução. Tendo em vista o caráter iterativo da GSE, foi possível realizar validações e ajustes constantes no comportamento do jogo.
+
+A escolha de ferramentas alinhadas com os requisitos definidos inicialmente trouxe facilidade de desenvolvimento por proporcionar padronização de configuração entre máquinas de trabalho com diferentes sistemas operacionais.
+
+\section{Análise dos objetivos}
+% Comentar que este objetivo não foi concluído: desenvolver um modo de jogo que cative o jogador por meio de elementos narrativos a aprender técnicas de matemática mental;
+Considerando os objetivos específicos expostos na seção \nameref{section:Objetivos} da \hyperref[chapter:Introdução]{Introdução}, a implementação do jogo Math Hero satisfez os objetivos específicos: 
+\begin{itemize}
+    \item aplicar padrões de \textit{game design} atrativos para o público alvo;
+    \item coletar, no mínimo, os seguintes dados de jogabilidade do modo competitivo: tempo decorrido até a finalização, nome do jogador, configuração das questões e \textit{seed} de jogo; e
+    \item analisar os resultados obtidos a partir dos dados de jogabilidade dos jogadores.
+\end{itemize}
+
+Padrões de \textit{game design} foram aplicados por meio da utilização de referências modernas para construção dos \textit{assets} utilizados na implementação. Os dados de tempo decorrido até a finalização, nome do jogador, configuração das questões e da \textit{seed} do jogo foram coletados e armazenados localmente em um diretório específico do \textit{game}, criado automaticamente durante a finalização das questões e inserção do nome do jogador.
+
+Já os resultados obtidos por meio de sessões de \textit{playtesting} foram analisados e levados em consideração para o planejamento e implementação de funcionalidades futuras e melhorias na execução e jogabilidade do Math Hero.
+
+Por fim, os objetivos específicos não satisfeitos em sua totalidade foram:
+\begin{itemize}
+    \item desenvolver um modo de jogo que cative o jogador por meio de elementos narrativos a aprender técnicas de matemática mental; e
+    \item adicionar um modo de jogo competitivo que estimule o aprendizado e a competição saudável.
+\end{itemize}
+
+O desenvolvimento de um modo de jogo que funcionasse como um ``modo história'' não foi realizado para ceder espaço para o desenvolvimento de um mínimo produto viável que atendesse as necessidades do evento ``Torneio de matemática mental'' realizado na Semana de Extensão Universitária 2024 da UnB, dada a grande oportunidade de coletar dados que suportem o ensino de técnicas de matemática mental no ensino básico. E, pelo mesmo motivo, a configuração de competição do modo \textit{time attack} não foi implementada em sua totalidade, dando espaço para uma mescla entre a configuração de treino e de competição.
+
+% Por fim, as atividades planejadas (descritas na Tabela \ref{table:Atividades de desenvolvimento 2}), salvo as que ainda não puderam ser levantadas, estão alinhadas com o desenvolvimento e entrega de um game pronto e em concordância com os requisitos e necessidades do público alvo. O desenvolvimento e artes personalizadas, execução do processo iterativo descrito pela GSE e o design do game dão o escopo geral do planejamento de desenvolvimento do projeto.
+
+\section{Trabalhos futuros}
+
+Um dos mais importantes trabalhos futuros planejados é a continuidade do desenvolvimento do \textit{Math Hero}, além da liberação das próximas versões do \textit{game}, que contarão com o modo história completo e refatorado, um quadro de líderes para modo \textit{time attack}, além de novos modos, sendo estes um modo de treino e um modo normal sem a postagem do tempo no quadro de líderes. Também estão sendo planejadas versões do jogo para plataformas \textit{mobile} e \textit{web}, com o intuito de ampliar o alcance do \textit{game}.
+
+A aplicação eficaz das sugestões levantadas até o momento possibilitará a evolução constante do projeto, bem como a sua utilização em diferentes contextos. Uma melhoria significativa seria a implementação completa do modo história do jogo, utilizando a temática de ``\textit{escape room}'' para validação e realização de novas sessões de coleta de \textit{feedbacks} através do \textit{playtesting}.
