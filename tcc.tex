@@ -29,6 +29,13 @@
 \usepackage{amsfonts}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, decorations.pathreplacing}
+\usepackage{booktabs} % Para linhas de tabela mais profissionais
+\usepackage{tabularx} % Para tabelas com colunas de largura ajustável
+\usepackage{multirow} % Para células que ocupam múltiplas linhas
+\usepackage{pgfgantt}
+\usepackage{ragged2e}
 \geometry{a4paper, margin=1in}
 
 \usepackage{fixos/customizacoes}
@@ -54,12 +61,12 @@
     \input{fixos/fichaCatalografica.tex}
     %\input{editaveis/errata.tex}
     \input{fixos/folhaDeAprovacao.tex}
-    \input{editaveis/dedicatoria.tex}
-    \input{editaveis/agradecimentos.tex}
-    \input{editaveis/epigrafe.tex}
-    \input{editaveis/resumo.tex}
-    \input{editaveis/abstract.tex}
-    \input{fixos/listasAutomaticas.tex}
+    % \input{editaveis/dedicatoria.tex}
+    % \input{editaveis/agradecimentos.tex}
+    % \input{editaveis/epigrafe.tex}
+    % \input{editaveis/resumo.tex}
+    % \input{editaveis/abstract.tex}
+    % \input{fixos/listasAutomaticas.tex}
     \input{editaveis/abreviaturas.tex}
     % \input{editaveis/simbolos.tex}
     \input{fixos/indiceAutomatico.tex}
@@ -70,8 +77,8 @@
     \input{editaveis/referencialteorico.tex}
     \input{editaveis/metodologia-cronograma-resultados/metodologia.tex}
     \input{editaveis/metodologia-cronograma-resultados/resultados.tex}
-    % \input{editaveis/metodologia-cronograma-resultados/cronograma.tex}
-    \input{editaveis/conclusao-e-consideracoes-finais/conclusao.tex}
+    \input{editaveis/metodologia-cronograma-resultados/cronograma.tex}
+    % \input{editaveis/conclusao-e-consideracoes-finais/conclusao.tex}
 
     \bookmarksetup{startatroot} 
 

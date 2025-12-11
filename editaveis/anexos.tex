@@ -1,72 +1,99 @@
-\begin{anexosenv}
+% \begin{anexosenv}
 
-\chapter{Máquina de estados em \textit{GDScript}}
-\begin{figure}[h]
-    \caption{Máquina de estados em \textit{GDScript}}
-    \begin{small}
-    \begin{verbatim}
-    extends Node
-    class_name StateMachine
+% \chapter{Máquina de estados em \textit{GDScript}}
+% \begin{figure}[h]
+%     \caption{Máquina de estados em \textit{GDScript}}
+%     \begin{small}
+%     \begin{verbatim}
+%     extends Node
+%     class_name StateMachine
 
-    @export var initial_state: State
+%     @export var initial_state: State
 
-    var current_state: State
-    var states: Dictionary = {}
+%     var current_state: State
+%     var states: Dictionary = {}
 
-    func _ready():
-	    for child in get_children():
-		        if child is State:
-			             states[child.name.to_lower()] = child
-			             child.Transition.connect(on_child_transition)
+%     func _ready():
+% 	    for child in get_children():
+% 		        if child is State:
+% 			             states[child.name.to_lower()] = child
+% 			             child.Transition.connect(on_child_transition)
 		
-		        if initial_state:
-			             initial_state.Enter()
-			             current_state = initial_state
+% 		        if initial_state:
+% 			             initial_state.Enter()
+% 			             current_state = initial_state
 
-    func _process(delta: float):
-	       if current_state:
-		          current_state.Update(delta)
+%     func _process(delta: float):
+% 	       if current_state:
+% 		          current_state.Update(delta)
 
-    func _physics_process(delta: float):
-	    if current_state:
-		          current_state.Physics_Update(delta)
+%     func _physics_process(delta: float):
+% 	    if current_state:
+% 		          current_state.Physics_Update(delta)
 
-    func on_child_transition(state: State, new_state_name: String):
-	    if state.name.to_lower() != current_state.name.to_lower():
-		          return
+%     func on_child_transition(state: State, new_state_name: String):
+% 	    if state.name.to_lower() != current_state.name.to_lower():
+% 		          return
 
-	    var new_state = states.get(new_state_name.to_lower())
-        if !new_state:
-            return
+% 	    var new_state = states.get(new_state_name.to_lower())
+%         if !new_state:
+%             return
 	
-        if current_state:
-            current_state.Exit()
+%         if current_state:
+%             current_state.Exit()
 
-            new_state.Enter()
-            current_state = new_state
-    \end{verbatim}
-    \end{small}
-\end{figure}
+%             new_state.Enter()
+%             current_state = new_state
+%     \end{verbatim}
+%     \end{small}
+% \end{figure}
 
-\chapter{Template de um estado em \textit{GDScript}}
-\begin{figure}[h]
-    \caption{\textit{Template} de um estado em \textit{GDScript}}
-    \begin{verbatim}
-        extends Node
-        class_name State
+% \chapter{Template de um estado em \textit{GDScript}}
+% \begin{figure}[h]
+%     \caption{\textit{Template} de um estado em \textit{GDScript}}
+%     \begin{verbatim}
+%         extends Node
+%         class_name State
     
-        signal Transition
+%         signal Transition
     
-        func Enter():
-        	   pass
-        func Exit():
-        	   pass
-        func Update(_delta: float):
-        	   pass
-        func Physics_Update(_delta: float):
-        	   pass
-    \end{verbatim}
-\end{figure}
+%         func Enter():
+%         	   pass
+%         func Exit():
+%         	   pass
+%         func Update(_delta: float):
+%         	   pass
+%         func Physics_Update(_delta: float):
+%         	   pass
+%     \end{verbatim}
+% \end{figure}
 
-\end{anexosenv}
+% \end{anexosenv}
 
+% \section{Cronograma Detalhado}
+% A Tabela \ref{tab:cronograma_detalhado} apresenta o cronograma detalhado do projeto, destacando as atividades principais e seus respectivos períodos de execução.
+
+% \begin{landscape}
+% \begin{table}[htbp]
+%     \centering
+%     \caption{Cronograma Detalhado do Projeto}
+%     \label{tab:cronograma_detalhado}
+%     \begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|c|}
+%         \hline
+%         \textbf{Atividade} & \textbf{Jan} & \textbf{Feb} & \textbf{Mar} & \textbf{Apr} & \textbf{May} & \textbf{Jun} & \textbf{Jul} & \textbf{Aug} & \textbf{Sep} & \textbf{Oct} & \textbf{Nov} & \textbf{Dec} \\
+%         \hline
+%         Pesquisa Inicial & X & X &   &   &   &   &   &   &   &   &   &   \\
+%         \hline
+%         Desenvolvimento &   &   & X & X & X & X &   &   &   &   &   &   \\
+%         \hline
+%         Testes &   &   &   &   & X & X & X &   &   &   &   &   \\
+%         \hline
+%         Análise de Dados &   &   &   &   &   & X & X & X &   &   &   &   \\
+%         \hline
+%         Redação do Relatório &   &   &   &   &   &   & X & X & X & X &   &   \\
+%         \hline
+%         Revisão e Submissão &   &   &   &   &   &   &   &   & X & X & X & X \\
+%         \hline
+%     \end{tabular}
+% \end{table}
+% \end{landscape} 
