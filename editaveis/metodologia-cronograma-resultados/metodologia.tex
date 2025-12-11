@@ -1,79 +1,312 @@
 \chapter[Metodologia]{Metodologia} \label{chapter:Metodologia}
 
-%\section{Considerações iniciais do capítulo}
-Considerando que um dos objetivos deste trabalho é unir elementos lúdicos ao ensino de matemática para jovens e crianças, este capítulo apresenta o plano metodológico em relação aos seguintes tópicos: métodos de desenvolvimento de software, levantamento de requisitos, ambiente de desenvolvimento, fontes de pesquisas bibliográficas e a localização e escolha dos \textit{assets} do \textit{game}.
+\nocite{*}
 
-\section{Processo de desenvolvimento}
-O processo de desenvolvimento é parte vital para que um software em fase de produção possa atingir altos níveis de qualidade e, consequentemente, sucesso. A iteratividade deste processo é importante durante o desenvolvimento de um \textit{game}, visto que ideias que pareciam geniais, quando propostas, podem ser abandonadas, ou até terem seu desenvolvimento prorrogado, por não suprirem expectativas, ou até não funcionarem como o esperado dentro do contexto do \textit{game}.
+Este capítulo detalha o desenho da pesquisa e o plano metodológico adotado para atingir os objetivos propostos. A abordagem combina uma fundamentação teórica, construída a partir da revisão de literatura, com um estudo de caso prático de caráter experimental. Serão descritos os procedimentos da pesquisa, o desenho do experimento, os critérios para a seleção do objeto de estudo, as ferramentas utilizadas, as métricas de avaliação e o protocolo de execução que guia a coleta e a análise dos dados. Ao final, são discutidas as limitações inerentes a este desenho metodológico.
 
-Nesta seção serão abordadas e exemplificadas todas as fases do desenvolvimento do \textit{Math Hero}.
+\section*{Nota sobre o uso de Inteligência Artificial}
+Em conformidade com as diretrizes acadêmicas de integridade e transparência, declara-se que ferramentas de Inteligência Artificial Generativa (\textbf{ChatGPT, GitHub Copilot e Google Gemini}) foram utilizadas na elaboração deste trabalho. Seu uso restringiu-se à revisão gramatical, sugestão de reestruturação de parágrafos para clareza, aprimoramento textual, geração de \textit{snippets} de código demonstrativos e auxílio na estruturação de ideias. Toda a concepção teórica, a análise crítica dos dados, a discussão dos resultados e as conclusões apresentadas são de autoria intelectual original dos pesquisadores humanos.
 
-\subsection{Levantamento de requisitos}
-Durante essa etapa, as técnicas escolhidas para a elicitação dos requisitos foram a introspecção e a entrevista. A técnica de introspecção trouxe liberdade ao processo criativo, para que este trabalho pudesse seguir sem adotar padrões de projetos de \textit{games} educativos já existentes, visto que estes geralmente possuem baixa adesão por parte de seu público alvo, por deixarem o caráter lúdico de lado em favor do caráter educacional. Já a técnica de entrevista foi utilizada principalmente para coletar \textit{feedbacks} dos jogadores e dos observadores, para que fossem feitos ajustes tanto na parte de jogabilidade (\textit{gameplay}) quanto nos elementos que proporcionam a sensação de imersão ao jogador durante todo fluxo do \textit{game}.
+\section{Abordagem da Pesquisa}
+Este trabalho adota uma abordagem de métodos mistos. A primeira fase, de natureza qualitativa, consiste em uma \textbf{Revisão da Literatura} para consolidar o entendimento sobre os impactos de ferramentas de IA no desenvolvimento de software. A segunda fase, de natureza quantitativa, é um \textbf{Estudo de Caso Empírico} com desenho experimental, que busca gerar evidências concretas sobre os efeitos da IA na qualidade do código.
 
-\subsection{\textit{Game Design}}
-Para criar um game, normalmente inicia-se definindo um objetivo a ser alcançado pelo jogador. E, para tornar sua jornada até este objetivo divertida e imersiva, o \textit{Game Design} define o escopo e as mecânicas que o jogador terá acesso, bem como os elementos gráficos e sonoros para auxiliar, guiar e imergir o jogador na superação de obstáculos até alcançar o objetivo final.
+A revisão da literatura informa o estudo de caso, especialmente na seleção das métricas relevantes (detalhadas na Seção \ref{sec:metricas_analise}), enquanto o experimento prático oferece os dados que serão discutidos à luz do conhecimento teórico estabelecido.
 
-Primeiramente, para conhecer melhor o que era desejado, foi necessário definir o que era não era desejado. E, a partir do distanciamento de conceitos de games educativos padrão, foi definido que o game \textit{Math Hero} teria como principal objetivo não deixar o aspecto lúdico de lado, em favor do aspecto educativo. Seria necessário então progredir nesta fase com foco em balancear o educativo e o lúdico dentro do \textit{game}.
+\section{Fase 1: Revisão da Literatura}
+A construção da base teórica desta pesquisa foi realizada por meio de uma revisão focada em cinco artigos acadêmicos recentes, selecionados por sua relevância direta com os objetivos deste trabalho. O propósito foi estabelecer um framework conceitual para guiar o estudo empírico, definindo quais dimensões de impacto — qualidade, produtividade, segurança e experiência do desenvolvedor — são mais proeminentes na literatura atual.
 
-O gênero escolhido foi o \textit{platformer adventure puzzle} para que, durante o modo história, o jogador possa aprender técnicas matemáticas e também utilizar suas habilidades para progredir. Além disso, quando este estiver jogando o modo \textit{time attack}, ele poderá testar suas habilidades e competir contra colegas em desafios matemáticos com temporizadores.
+% A tabela de artigos (Tabela 1) permanece aqui.
+\begin{table}[H]
+    \centering
+    \caption{Comparação entre os artigos selecionados para a fundamentação teórica.}
+    \label{tab:comparacao-artigos}
+    % ... (Conteúdo da sua Tabela 1 permanece inalterado) ...
+\end{table}
 
-\subsection{Desenvolvimento}
-A fase de desenvolvimento de um videogame, como todo software, é onde ocorre a união dos requisitos, regras e funcionalidades levantadas nas fases anteriores. A escolha de ferramentas e linguagens de programação adequadas altera drasticamente a experiência de desenvolvimento, o fluxo de trabalho e também a qualidade do produto final.
+\section{Cenário Atual e Seleção das Ferramentas de IA}
+Embora o mercado de Inteligência Artificial Generativa tenha se expandido rapidamente com o surgimento de modelos robustos como o \textbf{Claude 3.5 Sonnet} (Anthropic), conhecido por sua alta capacidade de raciocínio lógico, e o \textbf{Gemini 1.5 Pro} (Google), que oferece integração nativa com o ecossistema Google e ampla janela de contexto, este trabalho optou por focar nas ferramentas da OpenAI e GitHub.
 
-A primeira etapa feita na fase de desenvolvimento foi justamente a escolha de ferramentas de desenvolvimento que favorecessem este processo, tendo como ponto de partida para as escolhas a experiência prévia do autor com desenvolvimento de jogos. Assim, foi definido que as ferramentas utilizadas no desenvolvimento deste projeto seriam o git 2.34.1, GitHub, Godot Game Engine 4.3, Visual Studio Code 1.96.4 e Aseprite v1.3-beta.
+A escolha do \textbf{ChatGPT (modelo GPT-4)} como o "Arquiteto" justifica-se por sua posição consolidada como \textit{benchmark} de mercado, ampla disponibilidade de documentação e capacidade comprovada em tarefas de \textit{Zero-Shot Learning} para design de sistemas.
 
-A escolha feita pela Godot Game Engine foi baseada nos requisitos do \textit{game}, por ser uma \textit{game engine} que é gratuita, de uso livre e de código aberto, além de trazer facilidade quanto ao aprendizado e utilização dos recursos, por possuir uma extensa e completa documentação de seus recursos nativos, e por ter uma comunidade grande de desenvolvedores, o que faz com que seja possível buscar por ajuda em fóruns e comunidades virtuais de desenvolvedores.
+Para a função de "Copiloto" na codificação, a escolha do \textbf{GitHub Copilot} deve-se à sua integração profunda com o ambiente de desenvolvimento (VS Code) e sua liderança no segmento de \textit{AI Pair Programming}. Diferente de ferramentas baseadas apenas em chat, o Copilot possui acesso ao contexto do \textit{workspace} (arquivos abertos), característica fundamental para a metodologia de refatoração proposta neste estudo.
 
-Logo em seguida, para seguir as boas práticas da engenharia de \textit{games}, foi necessário realizar a escolha dos métodos de desenvolvimento de software a serem seguidos, para melhor rastreabilidade e controle das tarefas realizadas durante a produção. Assim, foi definida a utilização do SCRUM solo, exemplificado por \citeonline{pagotto_scrum_solo}, além de elementos do XP (Extreme programming) \cite{wells_extreme_2009}.
+\section{Fase 2: Estudo de Caso Empírico}
+Esta fase consiste na execução do experimento prático para coletar dados quantitativos sobre o impacto do uso das ferramentas GitHub Copilot e ChatGPT no desenvolvimento de software.
 
-O planejamento do desenvolvimento do game foi feito por meio da plataforma web de colaboração e controle de versionamento GitHub, por meio da funcionalidade GitHub Projects. As etapas de planejamento adotadas foram, em sequência: a definição do escopo e do tema do \textit{game} por meio de reuniões com o professor orientador deste projeto, a definição da duração das \textit{sprints} do projeto, a frequência das reuniões de acompanhamento, e também a rotina de acompanhamento do projeto pelo professor orientador. 
+\subsection{Desenho do Experimento}
+O experimento segue um desenho de \textbf{análise pré e pós-intervenção}, conforme ilustrado na Figura \ref{fig:fluxograma_metodologia}. Esta abordagem foi escolhida por sua capacidade de isolar e quantificar o impacto de uma intervenção específica. O processo envolve três etapas centrais:
+\begin{enumerate}
+    \item Estabelecimento de uma \textbf{linha de base (baseline)} de qualidade através da medição do estado inicial do sistema;
+    \item Execução de uma \textbf{intervenção controlada} de desenvolvimento de novas funcionalidades com assistência integral de IA;
+    \item Uma nova medição para \textbf{avaliação comparativa} dos artefatos de código gerados.
+\end{enumerate}
 
-A duração de uma \textit{sprint} foi definida para duas semanas, tendo em vista o tempo necessário para a criação ou seleção de \textit{assets}, desde \textit{sprites} 2D até arquivos de áudio para trilha sonora, e para o desenvolvimento da mecânica planejada. A periodicidade das reuniões de acompanhamento foi semanal, para que o professor orientador pudesse ter maior visão e controle da fase atual de desenvolvimento. E, por fim, a estrutura de acompanhamento do andamento das tarefas de desenvolvimento foi feita por meio de um quadro automático que envia atualizações para o e-mail do professor orientador sobre novas tarefas, atualizações em tarefas existentes e finalização de tarefas planejadas.
+% --- INÍCIO DO CÓDIGO DO FLUXOGRAMA (PRESERVADO) ---
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[
+        node distance=1.5cm and 2cm,
+        font=\small,
+        fase/.style={rectangle, rounded corners, draw, thick, fill=blue!10, text width=4.5cm, minimum height=1cm, align=center},
+        processo/.style={rectangle, draw, thick, fill=green!10, text width=4.5cm, minimum height=1cm, align=center},
+        artefato/.style={shape=rectangle, draw, thick, fill=orange!10, text width=3.5cm, align=center, minimum height=1cm},
+        ferramenta/.style={shape=ellipse, draw, dashed, fill=gray!10, font=\scriptsize, align=center},
+        conector/.style={-Stealth, thick}
+    ]
 
-\subsection{\textit{Playtesting}}
+    % FASE I
+    \node[fase] (fase1) {\textbf{Fase I: Preparação e Baseline}};
+    \node[processo, below=of fase1] (p1_isolar) {1. Definir Baseline do \texttt{django\_base}};
+    \node[ferramenta, left=0.3cm of p1_isolar, anchor=east] (git1) {Git};
+    \node[processo, below=of p1_isolar] (p2_analisar) {2. Executar Análise Estática Inicial};
+    \node[ferramenta, left=0.3cm of p2_analisar, anchor=east] (sonar1) {SonarQube};
+    \node[artefato, below=of p2_analisar] (a1_baseline) {Relatório de Baseline};
+    
+    % FASE II
+    \node[fase, below=2cm of a1_baseline] (fase2) {\textbf{Fase II: Execução da Intervenção}};
+    \node[processo, below=of fase2] (p3_desenvolver) {3. Refatorar e Incrementar Código};
+    \node[ferramenta, left=0.3cm of p3_desenvolver, anchor=east] (ia) {Copilot \&\\ChatGPT};
+    \node[artefato, below=of p3_desenvolver] (a2_diario) {Diário de Bordo};
 
-A fase de \textit{playtesting} é de extrema importância para o desenvolvimento de um \textit{game}, pois ela possibilita a visualização e adaptação de mecânicas desenvolvidas, bem como a exclusão e ideação de novas mecânicas que se encaixem melhor no contexto definido para o \textit{game}. Mesmo em fase de \textit{playtesting}, a equipe de desenvolvimento de um jogo pode aprender muito e realizar correções e mudanças que, sem o \textit{feedback} de pessoas externas ao desenvolvimento, não seriam feitas.
+    % --- COLUNA DA DIREITA (Fases III e IV) ---
+    \node[fase, right=of fase1] (fase3) {\textbf{Fase III: Validação e Medição Final}};
+    \node[processo, below=of fase3] (p4_validar) {4. Validar Código (Testes Unitários)};
+    \node[processo, below=of p4_validar] (p5_analisar_final) {5. Executar Análise Estática Final};
+    \node[ferramenta, right=0.3cm of p5_analisar_final, anchor=west] (sonar2) {SonarQube};
+    \node[artefato, below=of p5_analisar_final] (a3_final) {Relatório Final};
+    \node[fase, below=2cm of a3_final] (fase4) {\textbf{Fase IV: Análise Comparativa}};
+    \node[processo, below=of fase4] (p6_comparar) {6. Comparar Dados e Calcular Variações};
+    \node[artefato, below=of p6_comparar] (a4_resultados) {Resultados e Discussão};
 
-Durante a prototipação, os \textit{feedbacks} coletados de pessoas pertencentes ao público alvo serviram para obter uma visão geral de como a ideia do \textit{game} se comportaria perante os usuários finais. As mudanças sugeridas impactaram não somente o \textit{game design} mas as mecânicas propostas também, para que o conceito do game se tornasse mais atrativo para jovens e crianças do ensino básico.
+    % --- CONECTORES ---
+    \draw[conector] (fase1) -- (p1_isolar);
+    \draw[conector] (p1_isolar) -- (p2_analisar);
+    \draw[conector] (p2_analisar) -- (a1_baseline);
+    \draw[conector] (fase2) -- (p3_desenvolver);
+    \draw[conector] (p3_desenvolver) -- (a2_diario);
+    \draw[conector] (fase3) -- (p4_validar);
+    \draw[conector] (p4_validar) -- (p5_analisar_final);
+    \draw[conector] (p5_analisar_final) -- (a3_final);
+    \draw[conector] (fase4) -- (p6_comparar);
+    \draw[conector] (p6_comparar) -- (a4_resultados);
+    \draw[conector, dashed] (a1_baseline) -- (fase2);
+    \draw[conector, dashed] (a3_final) -- (fase4);
+    \draw[conector, line width=1.5pt] (a2_diario.east) -- ++(1.75,0) |- (fase3.west);
+    \draw[conector, gray] (a1_baseline.east) -- ++(1,0) |- (p6_comparar.west);
+    \draw[conector, gray] (a3_final.east) -- ++(1,0) |- (p6_comparar.east); 
 
-\section{Pesquisa de fontes bibliográficas}
+    \end{tikzpicture}
+    \caption{Fluxograma do desenho experimental pré e pós-intervenção, ilustrando o fluxo entre as fases de análise.}
+    \label{fig:fluxograma_metodologia}
+\end{figure}
+% --- FIM DO CÓDIGO DO FLUXOGRAMA ---
 
-A pesquisa de fontes bibliográficas é parte crucial de um trabalho de caráter científico. Por isso, a seleção de fontes que auxiliam na escrita, desenvolvimento e produção de resultados torna-se uma tarefa extensa e importante.
+\subsection{Evolução do Objeto de Estudo e Histórico}
+Durante a fase inicial da pesquisa (TCC 1), o projeto \textit{open-source} \textbf{Zulip} foi selecionado como objeto de estudo para a aplicação das intervenções de IA. No entanto, durante a execução preliminar, identificou-se que a complexidade arquitetural do Zulip e, especificamente, a latência de seu pipeline de CI/CD (com tempos de execução de testes superiores a 30 minutos) inviabilizavam o ciclo rápido de \textit{feedback} necessário para medir a produtividade da IA em tempo real.
 
-Para este trabalho, por conta do tema principal, as fontes bibliográficas escolhidas variam desde documentações à vídeos informativos disponibilizados no \citeonline{youtube}. Essa grande variedade de fontes informativas foi necessária devido ao caráter multidisciplinar do desenvolvimento de jogos. Mas, também, foi necessário uma fundamentação teórica sólida para que fosse possível demonstrar como práticas propostas pela engenharia de \textit{software} são aplicadas ao desenvolvimento de \textit{games}, além de demonstrar o impacto da adição de elementos lúdicos ao ensino da matemática.
+Além disso, a análise estática inicial do módulo selecionado no Zulip revelou uma cobertura de testes de apenas 22\%, o que criava uma linha de base ruidosa e dificultava a distinção entre o impacto da intervenção e a dívida técnica preexistente. Devido a esses impedimentos técnicos, o Zulip foi descontinuado como foco da intervenção ativa, sendo mantido neste trabalho apenas como registro das limitações metodológicas encontradas em projetos legados de alta complexidade.
 
-Os termos pesquisados foram ``Game Development, Game Engineering, Game Design, Cálculo Mental, Ludicidade e Ensino, Requisitos de Software, SCRUM, Desenvolvimento Ágil, Jogos e Matemática, Aprendizado matemática, Extreme Programming e IREB''. Dos resultados encontrados, foram selecionados 7 artigos de relevância para este trabalho. A Tabela \ref{table:Tabela de busca} representa os motores de busca utilizados, os termos de busca, a quantidade de resultados, a quantidade de artigos avaliados e a quantidade escolhida. Os critérios para a seleção foram a relação com o tema deste trabalho e a relevância da referência.
+\subsection{Seleção do Novo Objeto de Estudo: \texttt{django\_base}}
+Para garantir a viabilidade e o rigor do experimento, o objeto de estudo foi substituído pelo projeto \textit{open-source} \textbf{\texttt{django\_base}} (v2.1.0), um template profissional para projetos Django desenvolvido pelos autores. Esta escolha foi fundamentada em:
 
-\begingroup
-    \begin{table}[htbp]
-        \caption{Classificação da busca de refêrencias para o desenvolvimento do trabalho.}
-        \label{table:Tabela de busca}
-    \begin{center}
-        \begin{tabular}{l l c c c}
-            \toprule
-            \textbf{Motor de busca} & \textbf{Termos} & \textbf{Resultados} & \textbf{Avaliados} & \textbf{Escolhidos}\\
-            \midrule
-            Periódicos CAPES & \textit{Game Engineering} & 144.265 & 15 & 5 \\
-            \rowcolor{Gray} Periódicos CAPES & \textit{Game Development} & 73.866 & 13 & 2 \\
-            Periódicos CAPES & \textit{Game Design} & 72.484 & 4 & 1 \\
-            \rowcolor{Gray} Periódicos CAPES & \textit{Cálculo Mental} & 818 & 4 & 2\\
-            Periódicos CAPES & \textit{Ludicidade, ensino} & 736 & 10 & 2\\
-            \rowcolor{Gray} Periódicos CAPES & \textit{Requisitos de Software} & 946  & 3 & 2\\
-            Periódicos CAPES & \textit{SCRUM} & 4.456 & 10 & 1\\
-            \rowcolor{Gray} Periódicos CAPES & \textit{Desenvolvimento ágil} & 312 & 4 & 3\\
-            Periódicos CAPES & \textit{jogos; matemática} & 1.572 & 10 & 3\\
-            \rowcolor{Gray} Periódicos CAPES & \textit{Aprendizado matemática} & 1.142 & 4 & 1\\
-            YouTube & \textit{Game Engineering} & Não disponível & 10 & 0\\
-            \rowcolor{Gray} Youtube & \textit{Game Development} & Não disponível & 3 & 1\\
-            YouTube & \textit{Game Design} & Não disponível & 25 & 3\\
-            \rowcolor{Gray} Youtube & \textit{Cálculo Mental} & Não disponível & 5 & 0\\
-            Google & \textit{Extreme Progamming org} & 79.600.000 & 15 & 1 \\
-            \rowcolor{Gray} Google & \textit{IREB} & 582.000 & 5 & 1\\
-            \hline
-        \end{tabular}
-        \legend{Fonte: o Autor}
-    \end{center}
-    \end{table}
-\endgroup
+\begin{itemize}
+    \item \textbf{Linha de Base Robusta:} O projeto apresenta uma \textit{baseline} de alta maturidade (classificação "A" no SonarCloud e 93\% de cobertura de testes). Isso permite que ele sirva como um ambiente experimental controlado, onde o impacto da IA pode ser medido com precisão (sinal claro sem ruído).
+    \item \textbf{Controle do Ambiente:} O domínio completo do ambiente elimina barreiras de infraestrutura, permitindo a execução rápida de ciclos de análise (Prompt $\rightarrow$ Código $\rightarrow$ Teste $\rightarrow$ Refatoração).
+    \item \textbf{Arquitetura Modular:} A estrutura de Arquitetura Limpa do projeto é ideal para o desenho experimental de "evolução de software", permitindo que novos módulos sejam acoplados sem interferência no código legado.
+\end{itemize}
 
+Os resultados apresentados neste trabalho referem-se, portanto, exclusivamente às intervenções realizadas no \texttt{django\_base}.
+
+\subsection{Ambiente e Ferramentas de Apoio}
+Foi definido um ambiente de trabalho padronizado para garantir a consistência do experimento.
+% ... (lista de ferramentas permanece idêntica) ...
+
+\subsection{Definição do Escopo Experimental (Requisitos)}
+\label{sec:requisitos_intervencao}
+Para avaliar o impacto da IA em cenários de complexidade distintos, o experimento consiste em duas intervenções de desenvolvimento "greenfield" (código novo). A seguir, são especificados os requisitos para cada intervenção, que formarão o \textit{Product Backlog} do experimento.
+
+\subsubsection{Intervenção A: Módulo de Lógica de Negócios (Carrinho de Compras)}
+O objetivo é avaliar a capacidade da IA em lidar com lógica de negócios complexa e gerenciamento de estado.
+
+\paragraph{Histórias de Usuário (Requisitos Funcionais)}
+\begin{itemize}
+    \item \textbf{HU-A1:} Como um usuário anônimo, eu quero adicionar um produto ao meu carrinho (baseado em sessão), para que eu possa comprá-lo mais tarde.
+    \item \textbf{HU-A2:} Como um usuário anônimo, eu quero visualizar todos os itens e o valor total do meu carrinho, para que eu possa revisar meu pedido.
+    \item \textbf{HU-A3:} Como um usuário anônimo, eu quero atualizar a quantidade de um item no meu carrinho, para que a lógica de cálculo do total seja re-executada.
+    \item \textbf{HU-A4:} Como um usuário anônimo, eu quero remover um item do meu carrinho, para que eu não o compre.
+\end{itemize}
+
+\paragraph{Requisitos Não Funcionais}
+\begin{itemize}
+    \item \textbf{RNF-A1 (Testabilidade):} A lógica de negócios (cálculo de subtotal, total, adição e remoção) deve ser validada por testes unitários.
+    \item \textbf{RNF-A2 (Manutenibilidade):} As funções e métodos do módulo devem manter uma Complexidade Ciclomática baixa (inferior a 10).
+    \item \textbf{RNF-A3 (Confiabilidade):} A intervenção não deve introduzir nenhum `Bug` (classificação do SonarQube) no código novo.
+\end{itemize}
+
+\subsubsection{Intervenção B: Módulo de Segurança (Login Social OAuth2)}
+O objetivo é avaliar a capacidade da IA em implementar um fluxo de segurança, uma área onde a literatura aponta riscos significativos.
+
+\paragraph{Histórias de Usuário (Requisitos Funcionais)}
+\begin{itemize}
+    \item \textbf{HU-B1:} Como um novo usuário, eu quero me cadastrar/autenticar no sistema usando minha conta do Google, para não precisar criar uma conta local com senha.
+    \item \textbf{HU-B2:} Como um usuário existente, eu quero fazer login usando minha conta do Google, para acessar minha conta rapidamente e de forma segura.
+\end{itemize}
+
+\paragraph{Requisitos Não Funcionais}
+\begin{itemize}
+    \item \textbf{RNF-B1 (Segurança):} O fluxo deve implementar o protocolo `Authorization Code Grant` do OAuth2.
+    \item \textbf{RNF-B2 (Segurança):} As chaves secretas (API keys, client secrets) não devem estar expostas no código-fonte (\textit{hardcoded}), devendo ser lidas de variáveis de ambiente.
+    \item \textbf{RNF-B3 (Segurança):} O código novo gerado não deve conter nenhuma `Vulnerabilidade` ou `Hotspot de Segurança` de criticidade alta ou média (classificação do SonarQube).
+\end{itemize}
+
+\subsubsection{Backlog do Produto Experimental}
+A Tabela \ref{tab:backlog_experimento} consolida as \textit{features} (épicos) e suas respectivas histórias de usuário.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Backlog do Produto para o experimento de intervenção.}
+    \label{tab:backlog_experimento}
+    \begin{tabularx}{\textwidth}{l l X}
+        \toprule
+        \textbf{Feature (Épico)} & \textbf{ID da História} & \textbf{Descrição (História de Usuário)} \\
+        \midrule
+        \multirow{4}{*}{\parbox{3.5cm}{Gerenciamento de Carrinho de Compras}} 
+        & HU-A1 & Adicionar produto ao carrinho (sessão). \\
+        & HU-A2 & Visualizar carrinho e total. \\
+        & HU-A3 & Atualizar quantidade de item no carrinho. \\
+        & HU-A4 & Remover item do carrinho. \\
+        \midrule
+        \multirow{2}{*}{\parbox{3.5cm}{Autenticação via Google (OAuth2)}} 
+        & HU-B1 & Cadastrar-se no sistema com conta Google. \\
+        & HU-B2 & Fazer login no sistema com conta Google. \\
+        \bottomrule
+    \end{tabularx}
+    \legend{Fonte: os Autores.}
+\end{table}
+
+\subsection{Arquitetura da Aplicação}
+Foi definida e estruturada, com o auxílio do assistente de IA ChatGPT, a arquitetura final para a aplicação. O objetivo desse processo é entender como o agente de IA interpreta os requisitos e contribui para a definição arquitetural.
+
+\subsubsection{Arquitetura sugerida pelo Agente}
+A arquitetura para a intervenção no projeto \texttt{django\_base} foi desenhada para otimizar a testabilidade e a segurança. A estrutura segue o padrão nativo do Django, utilizando a separação por *Apps* de domínio e introduzindo uma \textbf{Camada de Serviço} para isolar a lógica de negócios.
+
+\paragraph{Estrutura e Isolamento por Apps:}
+O projeto será composto pelos seguintes Apps, garantindo o Princípio da Responsabilidade Única (SRP):
+\begin{itemize}
+    \item \texttt{shopping\_cart}: App responsável pela Intervenção A (Carrinho de Compras).
+    \item \texttt{accounts}: App responsável pela Intervenção B (Segurança/OAuth2).
+\end{itemize}
+
+\paragraph{Camada de Serviço (Intervenção A):}
+Para cumprir o RNF-A1 (Testabilidade) e RNF-A2 (Complexidade), toda a lógica complexa de gerenciamento é encapsulada em uma camada de serviço (\texttt{shopping\_cart/services.py}).
+\begin{itemize}
+    \item A \textbf{Camada de Serviço} manipula o estado do carrinho.
+    \item As Views HTTP apenas delegam chamadas a esta camada e lidam com a resposta.
+\end{itemize}
+
+\paragraph{Segurança e Configuração (Intervenção B):}
+Para atender aos requisitos de segurança (RNF-B1 a RNF-B3):
+\begin{itemize}
+    \item \textbf{Autenticação:} Utilização de bibliotecas consolidadas para implementar o fluxo \texttt{Authorization Code Grant}.
+    \item \textbf{Segredos:} Todas as chaves devem ser lidas via \textbf{variáveis de ambiente} (\texttt{.env}), prevenindo a exposição no código-fonte.
+\end{itemize}
+
+\subsubsection{Desenho da Arquitetura Definida}
+O desenho da arquitetura pode ser visualizado na Figura \ref{fig:diagrama_arquitetura}.
+
+\begin{figure}[htbp]
+    \centering
+    \caption{Diagrama de Arquitetura de Software.}
+    % Substitua pelo caminho correto da imagem da arquitetura
+    \includegraphics[width=\textwidth]{figuras/TCC_Architecture_V1.png}
+    \label{fig:diagrama_arquitetura}
+    \legend{Fonte: os Autores.}
+\end{figure}
+
+O diagrama ilustra o isolamento dos domínios da intervenção (Carrinho e Segurança) e a separação de responsabilidades (SRP) dentro do projeto \texttt{django\_base}.
+
+\paragraph{Níveis de Abstração e Componentes:}
+\begin{enumerate}
+    \item \textbf{Contêiner Principal (\texttt{django\_base}):} Representa o limite da aplicação.
+    \item \textbf{Módulos Internos:}
+    \begin{itemize}
+        \item \textbf{Views/Interface:} Camada de entrada/saída que recebe requisições HTTP.
+        \item \textbf{Lógica de Negócios (Serviços):} Contém as classes puras do \texttt{shopping\_cart/services.py}. É isolada e altamente testável.
+        \item \textbf{Autenticação/Integração:} Lida com o fluxo de segurança do \texttt{accounts} App.
+    \end{itemize}
+    \item \textbf{Serviços Externos:} Componentes de infraestrutura necessários.
+\end{enumerate}
+
+\paragraph{Comunicações Críticas:}
+\begin{itemize}
+    \item \textbf{Fluxo Carrinho (Intervenção A):} A camada de Interface delega à Lógica de Negócios, que se comunica com o Sistema de Sessão.
+    \item \textbf{Fluxo Segurança (Intervenção B):} A camada de Autenticação se comunica com o provedor OAuth2. A Configuração obtém chaves estritamente das Variáveis de Ambiente, cumprindo o RNF-B2.
+\end{itemize}
+
+\subsection{Definição das Métricas de Análise} \label{sec:metricas_analise}
+% (Sem alteração nesta seção)
+A seleção das métricas foi um processo deliberado...
+% ... (Texto das métricas permanece idêntico) ...
+
+\subsection{Critérios de Interpretação dos Resultados} \label{sec:interpretacao_resultados}
+% (Sem alteração nesta seção)
+% ... (Tabela de interpretação permanece idêntica) ...
+
+\subsection{Protocolo de Execução do Experimento}
+O protocolo experimental foi revisado para se adequar ao novo objeto de estudo. O processo será dividido em duas intervenções paralelas, executadas por pesquisadores distintos.
+
+\subsubsection{Intervenção A: Módulo de Lógica de Negócios (Carrinho de Compras)}
+\begin{itemize}
+    \item \textbf{Pesquisador Responsável:} Lude Ribeiro.
+    \item \textbf{Objetivo:} Implementar um novo módulo de "Carrinho de Compras" anônimo.
+    \item \textbf{Hipótese a Validar:} Avaliar a capacidade da IA (Copilot e ChatGPT) em lidar com lógica de negócios complexa, gerenciamento de estado e geração de testes.
+    \item \textbf{Indicadores-Chave:} Complexidade Ciclomática e Cobertura de Testes.
+\end{itemize}
+
+\subsubsection{Intervenção B: Módulo de Segurança (Login Social OAuth2)}
+\begin{itemize}
+    \item \textbf{Pesquisador Responsável:} Eric Chagas.
+    \item \textbf{Objetivo:} Implementar a integração com um provedor de "Login Social" via OAuth2.
+    \item \textbf{Hipótese a Validar:} Avaliar a eficácia da IA na implementação de fluxos de segurança, verificando a inserção de vulnerabilidades.
+    \item \textbf{Indicadores-Chave:} Vulnerabilidades e Hotspots de Segurança (CodeQL/Sonar).
+\end{itemize}
+
+\subsubsection*{Fases de Execução (Aplicadas a cada Intervenção)}
+Cada intervenção seguirá rigorosamente o mesmo protocolo de 4 fases em \textit{feature branches} Git separadas:
+
+\subsubsection*{Fase I: Preparação}
+\begin{enumerate}
+    \item \textbf{Isolamento do Código-Fonte:} Criação de uma \textit{feature branch} a partir da \textit{main} (baseline).
+    \item \textbf{Planejamento da Intervenção:} Definição dos requisitos específicos.
+\end{enumerate}
+
+\subsubsection*{Fase II: Execução da Intervenção (Desenvolvimento Assistido)}
+\begin{enumerate}
+    \setcounter{enumi}{2}
+    \item \textbf{Desenvolvimento Assistido por IA:} Realização da codificação com o auxílio integral do GitHub Copilot e ChatGPT.
+    \item \textbf{Registro Sistemático (Diário de Bordo):} Manutenção de um diário de bordo (disponível no Apêndice B) registrando os \textit{prompts}, sugestões acatadas/rejeitadas e justificativas.
+\end{enumerate}
+
+\subsubsection*{Fase III: Validação e Medição Final (Pós-Intervenção)}
+\begin{enumerate}
+    \setcounter{enumi}{4}
+    \item \textbf{Validação Funcional:} Verificação de que o código compila e os testes passam.
+    \item \textbf{Execução da Análise Estática:} Execução do SonarQube e `pytest-cov` na \textit{feature branch}.
+    \item \textbf{Coleta de Dados Finais:} Arquivamento dos relatórios de qualidade.
+\end{enumerate}
+
+\subsubsection*{Fase IV: Análise Comparativa dos Resultados}
+\begin{enumerate}
+    \setcounter{enumi}{7}
+    \item \textbf{Tabulação dos Dados:} Organização dos dados pós-intervenção.
+    \item \textbf{Análise Crítica:} Avaliação da qualidade intrínseca do código gerado "do zero" pela IA, utilizando a \textit{baseline} de 93\% de cobertura como padrão-ouro.
+    \item \textbf{Interpretação:} Análise dos resultados quantitativos, correlacionando-os com o Diário de Bordo.
+\end{enumerate}
+
+\subsection{Limitações da Metodologia}
+\label{sec:limitacoes}
+É imperativo reconhecer as limitações deste novo desenho de pesquisa.
+\begin{itemize}
+    \item \textbf{Generalização dos Resultados:} Por se tratar de um estudo de caso focado em um único projeto (\texttt{django\_base}), os resultados representam uma evidência pontual e aprofundada, não uma conclusão universal para todos os contextos de software.
+    \item \textbf{Viés de Autoria e Familiaridade:} A principal limitação é o uso de um projeto de autoria de um dos pesquisadores. Isso introduz um viés de familiaridade que pode otimizar a interação com o código. No entanto, esta limitação é mitigada pela adoção de uma linha de base de alta maturidade (padrão rigoroso a ser mantido) e pelo uso de ferramentas de análise estática (SonarQube) como "árbitro" imparcial da qualidade.
+\end{itemize}

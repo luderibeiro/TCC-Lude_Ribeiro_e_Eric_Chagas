@@ -1,158 +1,135 @@
-\chapter[Cronograma]{Cronograma} \label{chapter:Cronograma}
+\chapter{Cronograma de Execução e Gestão de Riscos}
+\label{chap:cronograma}
 
-As atividades desenvolvidas foram organizadas em um cronograma para melhorar a rastreabilidade e a organização do projeto. Por se tratar de um trabalho de conclusão de curso, o projeto do game \textit{Math Hero} foi dividido em duas etapas.
+Este capítulo apresenta o planejamento temporal e o registro da execução das atividades do TCC 2. Diferente de um cronograma linear tradicional, este plano de trabalho reflete a \textbf{natureza adaptativa} da pesquisa experimental. O cronograma foi reestruturado durante o curso do semestre para acomodar a decisão estratégica de substituição do objeto de estudo (Pivot), mitigando os riscos técnicos que ameaçavam a viabilidade do prazo final.
 
-\section{Primeira etapa}
-As atividades dispostas na tabela \ref{table:Atividades de desenvolvimento 1} foram separadas em \textit{sprints} de duas semanas, com início no dia 04 de setembro de 2023 e data final em 10 de dezembro de 2023.
+O cronograma final consolida-se em um regime de execução intensiva (\textit{Sprint}), visando a entrega do documento completo em \textbf{14 de Dezembro} e a defesa na data prevista de \textbf{16 de Dezembro}.
 
-\begingroup
-    \begin{table}[htbp]
-        \caption{Primeira etapa de desenvolvimento do game \textit{Math Hero}.}
-        \label{table:Atividades de desenvolvimento 1}
-    \begin{center}
-        \begin{tabular}{l l}
-            \toprule
-            \textbf{Id da tarefa} & \textbf{Atividade}\\
-            \midrule
-            \#01 & Estudo do contexto do projeto\\
-            \rowcolor{Gray} \#02 & Levantamento de requisitos\\
-            \#03 & Rascunho inicial da arte do game\\
-            \rowcolor{Gray} \#04 & Rascunho inicial do GDD\\
-            \#05 & Configuração do projeto na Godot Engine\\
-            \rowcolor{Gray} \#06 & Criação das mecânicas básicas do game\\
-            \#07 & Criação de \textit{scene} de teste\\
-            \rowcolor{Gray} \#08 & Criação do modelo de NPC\\
-            \#09 & Criação da mecânica de batalha de matemática\\
-            \rowcolor{Gray} \#10 & Criação do modelo de inimigo\\
-            \#11 & Criação das artes dos elementos da batalha de matemática\\
-            \rowcolor{Gray} \#12 & Correção de \textit{bug} nos colisores das paredes do cenário\\
-            \#13 & Adição de elementos sonoros\\
-            \rowcolor{Gray} \#14 & Adição do level de início do game\\
-            \#15 & Escrita da documentação do TCC\\
-        \end{tabular}
-        \legend{Fonte: o Autor}
-    \end{center}
-    \end{table}
-\endgroup
+\section{Detalhamento das Fases e Adaptação do Plano}
 
-A tabela \ref{gantt:Cronograma TCC1} mostra a duração, a data de início e de finalização de cada uma das tarefas descritas pela tabela \ref{table:Atividades de desenvolvimento 1}.
+A execução do projeto foi segmentada em quatro fases distintas. A Tabela \ref{tab:cronograma_tcc2_parte1} detalha a transição crítica da Fase 1 para a Fase 2, onde ocorreu a mudança de escopo técnico, e a Tabela \ref{tab:cronograma_tcc2_parte2} apresenta o planejamento final de escrita e defesa.
 
-\newpage
 \begin{landscape}
-\begin{table}[htbp]
-    \caption{Cronograma de execução de tarefas.}
-    \label{gantt:Cronograma TCC1}
-\begin{center}
-\begin{ganttchart}[
-    expand chart=\paperwidth,
-    y unit chart=18,
-    group left shift=0,
-    group right shift=0,
-    group peaks height=0,
-    group label font=\footnotesize,
-    group/.append style={draw=black,fill=UnB_Verde},
-    bar height=.2,
-    bar/.append style={draw=none,fill=UnB_Azul},
-]{1}{7}
-    \gantttitle{\textbf{Cronograma de tarefas -- \textit{Math Hero}}}{7} \\
-    \gantttitlelist{"Sprint 1","Sprint 2","Sprint 3","Sprint 4","Sprint 5","Sprint 6","Sprint 7"}{1} \\
-    \ganttbar{\#01}{1}{1} \\
-    \ganttbar{\#02}{1}{7} \\
-    \ganttbar{\#03}{2}{2} \\
-    \ganttbar{\#04}{2}{2} \\
-    \ganttbar{\#05}{2}{2} \\
-    \ganttbar{\#06}{2}{2} \\
-    \ganttbar{\#07}{3}{3} \\
-    \ganttbar{\#08}{3}{3} \\
-    \ganttbar{\#09}{4}{7} \\
-    \ganttbar{\#10}{4}{4} \\
-    \ganttbar{\#11}{4}{4} \\
-    \ganttbar{\#12}{4}{4} \\
-    \ganttbar{\#13}{5}{7} \\
-    \ganttbar{\#14}{5}{7} \\
-    \ganttbar{\#15}{1}{7} \\
-    \ganttvrule{04/09/2023}{0}
-    \ganttvrule{17/09/2023}{1}
-    \ganttvrule{01/10/2023}{2}
-    \ganttvrule{15/10/2023}{3}
-    \ganttvrule{29/10/2023}{4}
-    \ganttvrule{12/11/2023}{5}
-    \ganttvrule{26/11/2023}{6}
-    \ganttvrule{10/12/2023}{7}
-\end{ganttchart}
-\legend{Fonte: o Autor}
-\end{center}
-\end{table}
+    \begin{table}[htbp]
+        \centering
+        \caption{Cronograma Executivo TCC 2 - Fase Exploratória e Pivot (Ago/25 a Nov/25)}
+        \label{tab:cronograma_tcc2_parte1}
+        \begingroup
+        \scriptsize
+        % Ajustei as larguras para evitar Overfull \hbox
+        \setlength{\tabcolsep}{4pt}
+        \renewcommand{\arraystretch}{1.3}
+        \begin{tabular}{@{} l p{8.5cm} c p{4.0cm} @{}}
+            \toprule
+            \textbf{Fase} & \textbf{Atividade e Descrição Detalhada} & \textbf{Período (Semanas)} & \textbf{Entregável / Marco} \\
+            \midrule
+            
+            \multirow{3}{*}{\textbf{Fase 1}} & \textbf{Exploração e Baseline (Projeto Zulip):} Configuração de ambiente complexo, tentativa de isolamento de módulos e execução da análise estática inicial. Identificação de bloqueios de infraestrutura. & 18/08 a 31/10 (Sem. 1-10) & Relatório de Impedimentos Técnicos. \\
+            \addlinespace[0.5em]
+            & \textbf{Análise de Risco e Tomada de Decisão (Pivot):} Avaliação da inviabilidade do ciclo de feedback no Zulip. Seleção do \texttt{django\_base} como novo objeto de estudo. & 01/11 a 07/11 (Sem. 11) & \textbf{Marco de Decisão:} Troca de Objeto de Estudo. \\
+            \addlinespace[0.5em]
+            & \textbf{Setup do Novo Ambiente (django\_base):} Configuração do pipeline de CI/CD simplificado, Docker Compose e estabelecimento da nova Baseline de qualidade (SonarQube). & 08/11 a 17/11 (Sem. 12-13) & Nova Baseline ("Padrão Ouro") definida. \\
+            \midrule
+            
+            \multirow{4}{*}{\textbf{Fase 2}} & \textbf{Intervenção Assistida por IA (Sprint de Desenvolvimento):} Implementação dos módulos de \textbf{Carrinho de Compras} (Lógica) e \textbf{Autenticação OAuth2} (Segurança) utilizando Copilot e ChatGPT. & \textbf{18/11 a 24/11 (Sem. 14)} & Código funcional, Testes e Diário de Bordo. \\
+            \addlinespace[0.5em]
+            & \textbf{Validação e Coleta de Métricas:} Execução de testes de regressão, testes de carga e nova análise estática (Pós-Intervenção). Coleta dos relatórios de cobertura. & 25/11 a 27/11 (Sem. 15) & Dados Brutos para Análise. \\
+            \addlinespace[0.5em]
+            & \textbf{Análise Quantitativa e Visualização:} Processamento dos dados, cálculo de delta (Antes vs. Depois) e geração dos gráficos comparativos. & 28/11 a 30/11 (Sem. 15) & Gráficos do Cap. de Resultados. \\
+            \addlinespace[0.5em]
+            & \textbf{Escrita do Capítulo de Resultados:} Redação técnica descrevendo os achados, correlacionando métricas com o Diário de Bordo. & 01/12 a 02/12 (Sem. 16) & Capítulo 4 Finalizado. \\
+            \bottomrule
+        \end{tabular}
+        \endgroup
+    \end{table}
 \end{landscape}
 
-\section{Segunda etapa}
-A segunda etapa de desenvolvimento está situada durante o período de 18 de março de 2024 até 07 de julho de 2024 e compreende as atividades da tabela \ref{table:Atividades de desenvolvimento 2}.
+\clearpage
 
-\begingroup
-    \begin{table}[htbp]
-        \caption{Segunda etapa de desenvolvimento do game \textit{Math Hero}.}
-        \label{table:Atividades de desenvolvimento 2}
-    \begin{center}
-        \begin{tabular}{l l}
-            \toprule
-            \textbf{Id da tarefa} & \textbf{Atividade}\\
-            \midrule
-            \#16 & Mudança na mecânica de aprendizado das técnicas de cálculo mental\\
-            \rowcolor{Gray} \#17 & Sound design\\
-            \#18 & Level design\\
-            \rowcolor{Gray} \#19 & Escolha dos problemas matemáticos do modo história\\
-            \#20 & Criação da história do game\\
-            \rowcolor{Gray} \#21 & Criação do modo \textit{time attack}\\
-            \#22 & Mostra do game\\
-            \rowcolor{Gray} \#23 & Coleta de feedbacks\\
-            \#24 & Escrita da documentação do TCC\\
-        \end{tabular}
-        \legend{Fonte: o Autor}
-    \end{center}
-    \end{table}
-\endgroup
-
-O planejamento de distribuição das atividades, contando com as atividades ainda em aberto referentes a etapa 1 está descrito na tabela \ref{gantt:Cronograma TCC2}
-
-\newpage
 \begin{landscape}
-\begin{table}[htbp]
-    \caption{Cronograma de execução de tarefas.}
-    \label{gantt:Cronograma TCC2}
-\begin{center}
-\begin{ganttchart}[
-    expand chart=\paperwidth,
-    y unit chart=18,
-    group left shift=0,
-    group right shift=0,
-    group peaks height=0,
-    group label font=\footnotesize,
-    group/.append style={draw=black,fill=UnB_Verde},
-    bar height=.2,
-    bar/.append style={draw=none,fill=UnB_Azul},
-]{1}{8}
-    \gantttitle{\textbf{Cronograma de tarefas -- \textit{Math Hero}}}{8} \\
-    \gantttitlelist{"Sprint 1","Sprint 2","Sprint 3","Sprint 4","Sprint 5","Sprint 6","Sprint 7","Sprint 8"}{1} \\
-    \ganttbar{\#16}{1}{2} \\
-    \ganttbar{\#17}{2}{3} \\
-    \ganttbar{\#18}{2}{3} \\
-    \ganttbar{\#19}{4}{4} \\
-    \ganttbar{\#20}{4}{4} \\
-    \ganttbar{\#21}{5}{6} \\
-    \ganttbar{\#22}{6}{6} \\
-    \ganttbar{\#23}{7}{7} \\
-    \ganttbar{\#24}{1}{8} \\
-    \ganttvrule{18/03/2024}{0}
-    \ganttvrule{01/04/2024}{1}
-    \ganttvrule{15/04/2024}{2}
-    \ganttvrule{29/04/2024}{3}
-    \ganttvrule{13/05/2024}{4}
-    \ganttvrule{27/05/2024}{5}
-    \ganttvrule{10/06/2024}{6}
-    \ganttvrule{24/06/2024}{7}
-    \ganttvrule{08/07/2024}{8}
-\end{ganttchart}
-\legend{Fonte: o Autor}
-\end{center}
-\end{table}
+    \begin{table}[htbp]
+        \centering
+        \caption{Cronograma Executivo TCC 2 - Finalização e Defesa (Dezembro/25)}
+        \label{tab:cronograma_tcc2_parte2}
+        \begingroup
+        \scriptsize
+        \setlength{\tabcolsep}{4pt}
+        \renewcommand{\arraystretch}{1.3}
+        \begin{tabular}{@{} l p{8.5cm} c p{4.0cm} @{}}
+            \toprule
+            \textbf{Fase} & \textbf{Atividade e Descrição Detalhada} & \textbf{Período (Semanas)} & \textbf{Entregável / Marco} \\
+            \midrule
+            
+            \multirow{3}{*}{\textbf{Fase 3}} & \textbf{Consolidação e Discussão:} Interpretação crítica dos resultados à luz do referencial teórico. Redação das Considerações Finais e Trabalhos Futuros. & 03/12 a 05/12 (Sem. 16) & Texto completo (Draft). \\
+            \addlinespace[0.5em]
+            & \textbf{Revisão Geral e Normalização ABNT:} Leitura completa, correção de citações, formatação de apêndices (Diário de Bordo e Protocolos) e revisão textual. & 06/12 a \textbf{13/12} (Sem. 17) & Versão Final para Depósito. \\
+            \addlinespace[0.5em]
+            & \textbf{Entrega Formal do Documento (DATA LIMITE):} Envio do documento final ao orientador e banca examinadora. & \textbf{14/12 (Sem. 17)} & \textbf{MARCO FINAL: ENTREGA.} \\
+            \midrule
+            
+            \multirow{2}{*}{\textbf{Fase 4}} & \textbf{Preparação para Banca:} Elaboração dos slides, roteiro de apresentação e revisão dos principais pontos de arguição. & 10/12 a 15/12 (Sem. 17-18) & Material de Apresentação. \\
+            \addlinespace[0.5em]
+            & \textbf{Defesa Pública:} Apresentação do trabalho à banca examinadora. & \textbf{16/12 (Confirmado)} (Sem. 18) & \textbf{Conclusão do Curso.} \\
+            \bottomrule
+        \end{tabular}
+        \endgroup
+    \end{table}
 \end{landscape}
+
+\section{Visualização da Execução (Gantt)}
+A Figura \ref{fig:gantt_cronograma} ilustra a distribuição temporal das atividades, destacando a extensão do prazo de escrita e revisão até a entrega final em 14/12.
+
+\begin{figure}[htbp]
+    \centering
+    % Resizebox garante que o gráfico caiba na largura do texto sem estourar margem
+    \resizebox{\textwidth}{!}{%
+    \begin{ganttchart}[
+        vgrid,
+        hgrid,
+        x unit=0.5cm,
+        y unit chart=0.8cm,
+        title height=1,
+        bar/.style={fill=blue!50},
+        bar incomplete/.style={fill=white},
+        milestone/.style={fill=red!70},
+        time slot format=simple
+    ]{1}{18} 
+
+    % --- CABEÇALHO ---
+    \gantttitle{Cronograma TCC 2 - Execução e Pivot (2025)}{18} \\
+    \gantttitle{Ago.}{2} 
+    \gantttitle{Set.}{4}
+    \gantttitle{Out.}{5}  
+    \gantttitle{Nov.}{4}
+    \gantttitle{Dez.}{3} \\
+    \gantttitlelist{1,...,18}{1} \\
+
+    % --- FASE 1: O PIVOT ---
+    \ganttgroup[group/.append style={fill=gray!30}]{Fase 1: Exploração e Decisão}{1}{13} \\
+    \ganttbar[bar/.append style={fill=gray!50}]{Tentativa Zulip (Impedimentos)}{1}{11} \\
+    \ganttmilestone[milestone/.append style={fill=red!90}]{\textbf{Decisão de Pivot}}{11.5} \\
+    \ganttbar{Setup Django Base}{12}{13} \\
+
+    % --- FASE 2: EXECUÇÃO ---
+    \ganttgroup[group/.append style={fill=blue!20}]{Fase 2: Intervenção (Sprint)}{14}{15} \\
+    \ganttbar{\textbf{Dev. Assistido (Cart/Auth)}}{14}{14.5} \\
+    \ganttbar{Validação e Métricas}{14.5}{15} \\ 
+    \ganttbar{Análise de Dados}{15}{15.5} \\
+
+    % --- FASE 3: ESCRITA E REVISÃO ---
+    \ganttgroup[group/.append style={fill=green!30}]{Fase 3: Escrita Final}{16}{17} \\
+    \ganttbar{Resultados e Discussão}{16}{16.5} \\
+    \ganttbar{Revisão ABNT e Apêndices}{16.5}{17} \\
+    \ganttmilestone[milestone/.append style={fill=orange!80}]
+    {\textbf{ENTREGA (14/12)}}{17} \\
+
+    % --- FASE 4: BANCA ---
+    \ganttgroup[group/.append style={fill=yellow!30}]{Fase 4: Banca}{17}{18} \\
+    \ganttbar{Prep. Apresentação}{17}{18} \\
+    \ganttmilestone{\textbf{Defesa (16/12)}}{18}
+    
+    \end{ganttchart}
+    }
+    \caption{Linha do tempo do projeto, evidenciando o momento de decisão (Pivot) e o cronograma final até a defesa em 16/12.}
+    \label{fig:gantt_cronograma}
+\end{figure}

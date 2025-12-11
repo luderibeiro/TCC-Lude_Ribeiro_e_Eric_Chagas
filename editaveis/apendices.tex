@@ -1,130 +1,337 @@
 \begin{apendicesenv}
 
-\chapter{Implementação do \textit{Singleton GameManager}} \label{apendice: script GameManager}
+% ===========================================================================
+% APÊNDICE A: MAPEAMENTO ISO/IEC 25010 (Manutenibilidade)
+% ===========================================================================
+\chapter{Mapeamento das Métricas de Manutenibilidade}
+\label{apendice:map_manut}
 
-\begin{minted}
-[
-framesep=2mm,
-baselinestretch=1.2,
-bgcolor=Gray,
-fontsize=\footnotesize,
-linenos
-]
-{python}
-extends Node
-
-enum Game_Modes {Story=1, TimeAttack=2, Menu=0}
-enum Time_Attack_Modes {Competition=0, Practice=1, Normal=3}
-
-var game_mode: int = Game_Modes.Menu
-var time_limit: float = 0.0
-var skip_count: int = 0
-var tattack_options: Dictionary = {}
-var tattack_results: Dictionary = {}
-
-@onready var scene_tree = get_tree()
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
-func change_scene(target_scene):
-	if not target_scene:
-		#print_debug("Target scene is null!")
-		
-		scene_tree.quit() # Quit game options was pressed
-	else:
-		#print_debug(target_scene)
-		scene_tree.change_scene_to_file(target_scene)
-\end{minted}
-
-% \chapter{\textit{Script} de definição da máquina de estados} \label{apendice: script state machine}
-
-% \begin{minted}
-% [
-% framesep=2mm,
-% baselinestretch=1.2,
-% bgcolor=Gray,
-% fontsize=\footnotesize,
-% linenos
-% ]
-% {python}
-% extends Node
-% class_name StateMachine
-
-% @export var initial_state: State
-
-% var current_state: State
-% var states: Dictionary = {}
-
-% func _ready():
-% 	for child in get_children():
-% 		if child is State:
-% 			states[child.name.to_lower()] = child
-% 			child.Transition.connect(on_child_transition)
-		
-% 		if initial_state:
-% 			initial_state.Enter()
-% 			current_state = initial_state
-
-% func _process(delta: float):
-% 	if current_state:
-% 		current_state.Update(delta)
-
-% func _physics_process(delta: float):
-% 	if current_state:
-% 		current_state.Physics_Update(delta)
-
-% func on_child_transition(state: State, new_state_name: String):
-% 	if state.name.to_lower() != current_state.name.to_lower():
-% 		return
-
-% 	var new_state = states.get(new_state_name.to_lower())
-% 	if !new_state:
-% 		return
-	
-% 	if current_state:
-% 		current_state.Exit()
-
-% 	new_state.Enter()
-% 	current_state = new_state
-% \end{minted}
-
-% \chapter{\textit{Script} de template de um estado} \label{apendice: state template}
-% \begin{minted}
-% [
-% framesep=2mm,
-% baselinestretch=1.2,
-% bgcolor=Gray,
-% fontsize=\footnotesize,
-% linenos
-% ]
-% {python}
-% extends Node
-% class_name State
-
-% signal Transition
-
-% func Enter():
-% 	pass
-
-% func Exit():
-% 	pass
-
-% func Update(_delta: float):
-% 	pass
-
-% func Physics_Update(_delta: float):
-% 	pass
-% \end{minted}
-
-\chapter{\textit{Tilemap} do modo \textit{time attack}} \label{apendice: tilemap tattack}
-\begin{figure}[h]
+\begin{table}[H]
     \centering
-    \caption{\textit{Tilemap} de artes para construção visual do modo \textit{time attack}}
-    \includegraphics[width=220pt, keepaspectratio]{figuras/tilemap-tattack.pdf}
-    \label{fig:tilemap time attack}
-    \legend{Fonte: o Autor}
-\end{figure}
+    \scriptsize
+    \caption{Relação entre as métricas de Manutenibilidade do estudo e as subcaracterísticas da norma ISO/IEC 25010:2023 \cite{isoiec25010}.}
+    \label{tab:apendice_manutenibilidade}
+    \begin{tabularx}{\textwidth}{l X X}
+        \toprule
+        \textbf{Subcaracterística} & \textbf{Métrica (SonarQube)} & \textbf{Relação e Alinhamento} \\
+        \midrule
+        \textbf{Analisabilidade} & \textbf{Dívida Técnica} & Medida em tempo de remediação, indica o esforço para entender e consertar o código. Alto nível de dívida compromete a analisabilidade. \\
+        \cmidrule{2-3}
+        & \textbf{Code Smells} & Tornam o código complexo de diagnosticar. A redução melhora a facilidade de análise. \\
+        \midrule
+        \textbf{Modificabilidade} & \textbf{Complexidade Ciclomática} & Funções complexas são difíceis de modificar. O controle garante modificações seguras. \\
+        \cmidrule{2-3}
+        & \textbf{Código Duplicado} & Exige mudanças em múltiplos locais, aumentando risco de erros. \\
+        \midrule
+        \textbf{Testabilidade} & (Cobertura de Testes) & Embora crítica, a cobertura complementa a análise de manutenibilidade. \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+% ===========================================================================
+% APÊNDICE B: MAPEAMENTO ISO/IEC 25010 (Confiabilidade)
+% ===========================================================================
+\chapter{Mapeamento da Métrica de Confiabilidade}
+\label{apendice:map_conf}
+
+\begin{table}[H]
+    \centering
+    \scriptsize
+    \caption{Relação entre a métrica de Confiabilidade do estudo e as subcaracterísticas da norma ISO/IEC 25010:2023 \cite{isoiec25010}.}
+    \label{tab:apendice_confiabilidade}
+    \begin{tabularx}{\textwidth}{l X X}
+        \toprule
+        \textbf{Subcaracterística} & \textbf{Métrica (SonarQube)} & \textbf{Relação e Alinhamento} \\
+        \midrule
+        \textbf{Tolerância a Falhas} & \textbf{Bugs} & Bugs são a manifestação direta de problemas de confiabilidade. Sua redução aumenta a confiança no sistema. \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+% ===========================================================================
+% APÊNDICE C: MAPEAMENTO ISO/IEC 25010 (Segurança)
+% ===========================================================================
+\chapter{Mapeamento das Métricas de Segurança}
+\label{apendice:map_seg}
+
+\begin{table}[H]
+    \centering
+    \scriptsize
+    \caption{Relação entre as métricas de Segurança do estudo e as subcaracterísticas da norma ISO/IEC 25010:2023 \cite{isoiec25010}.}
+    \label{tab:apendice_seguranca}
+    \begin{tabularx}{\textwidth}{l X X}
+        \toprule
+        \textbf{Subcaracterística} & \textbf{Métrica (SonarQube)} & \textbf{Relação e Alinhamento} \\
+        \midrule
+        \textbf{Integridade} & \textbf{Vulnerabilidades} & Correção de falhas que permitem exploração do sistema. \\
+        \cmidrule{2-3}
+        \textbf{Confidencialidade} & \textbf{Hotspots de Segurança} & Pontos sensíveis que exigem revisão manual para garantir proteção de dados. \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+% ===========================================================================
+% APÊNDICE D: PROTOCOLO DE REPRODUCIBILIDADE
+% ===========================================================================
+\chapter{Protocolo de Reproducibilidade Experimental}
+\label{apendice:protocolo_reproducibilidade}
+
+Este apêndice documenta os artefatos de configuração utilizados. O objetivo é permitir a reprodução do experimento, contrastando a complexidade do projeto inicial (Zulip) com a solução otimizada (Django Base).
+
+\section{Ambiente 1: Projeto Zulip (Fase Exploratória)}
+A complexidade da infraestrutura de testes do Zulip inviabilizou o ciclo de feedback rápido. Abaixo, o trecho do arquivo \texttt{zulip-ci.yml} que demonstra a dependência de contêineres customizados e scripts proprietários.
+
+\begin{verbatim}
+jobs:
+  tests:
+    strategy:
+      matrix:
+        include:
+          - docker_image: zulip/ci:jammy
+            name: Ubuntu 22.04 (Python 3.10)
+    container: ${{ matrix.docker_image }}
+    steps:
+      - name: Install dependencies
+        run: |
+          ./tools/ci/setup-backend --skip-dev-db-build
+      - name: Run backend tests
+        run: |
+          ./tools/test-backend --coverage
+\end{verbatim}
+
+\section{Ambiente 2: Projeto Django Base (Ambiente Ativo)}
+Ambiente onde as intervenções foram executadas. Utiliza padrões de mercado para garantir reprodutibilidade.
+
+\subsection{Containerização (Docker Compose)}
+Trecho do arquivo \texttt{docker-compose.dev.yml} utilizado:
+
+\begin{verbatim}
+services:
+    project:
+        container_name: project_dev
+        build:
+            context: .
+            dockerfile: Dockerfile.dev
+        ports:
+            - "8000:8000"
+        depends_on:
+            project_db:
+                condition: service_healthy
+
+    project_db:
+        image: postgres:13-alpine
+        healthcheck:
+            test: ["CMD-SHELL", "pg_isready -U postgres"]
+            interval: 5s
+\end{verbatim}
+
+\subsection{Automação (Makefile)}
+Comandos utilizados para padronizar a execução dos testes e análises.
+\textit{Nota: Os emojis originais foram removidos para compatibilidade com a compilação do documento.}
+
+\begin{verbatim}
+# Execucao da suite de testes completa
+test:
+    @echo "[TEST] Executando testes..."
+    @cd $(PROJECT_DIR) && . ../$(VENV)/bin/activate && \
+    export PYTHONPATH=$$PWD && $(PYTEST) -v core cart
+
+# Medicao de cobertura para o Sonar
+test-coverage:
+    @echo "[COVERAGE] Executando testes com cobertura..."
+    @cd $(PROJECT_DIR) && . ../$(VENV)/bin/activate && \
+    export PYTHONPATH=$$PWD && \
+    $(PYTEST) --cov=core --cov=cart --cov-report=xml
+
+# Analise de Seguranca
+security-check:
+    @echo "[SECURITY] Verificando vulnerabilidades..."
+    @cd $(PROJECT_DIR) && . ../$(VENV)/bin/activate && pip-audit
+\end{verbatim}
+
+\subsection{Pipeline CI/CD (GitHub Actions)}
+Configuração do \textit{workflow} para validação contínua.
+
+\begin{verbatim}
+name: CI/CD Pipeline
+on: [push, pull_request]
+jobs:
+  test-and-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.12"
+      - name: Run tests
+        run: |
+          cd project
+          pytest --cov=core --cov=cart --cov-report=xml:coverage.xml
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+\end{verbatim}
+
+% ===========================================================================
+% APÊNDICE E: DIÁRIO DE BORDO (EXPANDIDO)
+% ===========================================================================
+\chapter{Diário de Bordo Experimental}
+\label{apendice:diario_bordo}
+
+Este apêndice apresenta o registro cronológico e detalhado das sessões de pareamento com as ferramentas de IA. O objetivo é documentar não apenas o código final, mas o processo de construção, incluindo as falhas de contexto, as alucinações da ferramenta e as intervenções humanas corretivas.
+
+\section*{Entrada 1: Definição Arquitetural e Configuração Inicial}
+\label{diario:entrada1}
+\textbf{Data:} 24/11/2025
+
+\begin{table}[H]
+    \centering
+    \small
+    \begin{tabularx}{\textwidth}{|l|X|}
+        \hline
+        \textbf{Pesquisador} & Lude Ribeiro \\ \hline
+        \textbf{Requisito} & Arquitetura do Módulo (Modular Monolith) \\ \hline
+        \textbf{Ferramenta} & ChatGPT 4.0 (Web) \\ \hline
+        \textbf{Tempo} & aproximadamente 4 horas \\ \hline
+    \end{tabularx}
+\end{table}
+
+\textbf{1. Objetivo:} Definir a estrutura de pastas para o novo módulo \texttt{cart} respeitando a Clean Architecture já existente.
+
+\textbf{2. Interação (Prompt):}
+\begin{quote}
+"Atue como um Arquiteto de Software. Preciso criar um NOVO módulo isolado chamado \texttt{cart}. Forneça um script bash para criar a árvore de diretórios e a configuração do \texttt{apps.py}."
+\end{quote}
+
+\textbf{3. Resultado e Análise:}
+A IA gerou um script tecnicamente correto, mas posicionalmente errado. Ela assumiu a raiz do repositório git como raiz do projeto Django.
+\begin{itemize}
+    \item \textbf{Falha:} O script criaria pastas fora de \texttt{project/}.
+    \item \textbf{Intervenção Humana:} Execução manual do script dentro do diretório correto.
+    \item \textbf{Conclusão:} A IA carece de "consciência espacial" do projeto sem acesso direto à árvore de arquivos.
+\end{itemize}
+
+\section*{Entrada 2: A Crise de Infraestrutura e Perda de Contexto}
+\label{diario:entrada2}
+\textbf{Data:} 25/11/2025
+
+\begin{table}[H]
+    \centering
+    \small
+    \begin{tabularx}{\textwidth}{|l|X|}
+        \hline
+        \textbf{Requisito} & Configuração de Ambiente (Docker) \\ \hline
+        \textbf{Ferramenta} & ChatGPT 4.0 (Web) \\ \hline
+    \end{tabularx}
+\end{table}
+
+\textbf{1. Incidente:} Durante o setup, ocorreu um erro de rede no Docker (\texttt{IPv6 network unreachable}).
+\textbf{2. Impacto no Experimento:} A sessão de debugging consumiu mais de 40 interações. Ao tentar retornar ao código Python, a IA sofreu \textbf{Saturação de Contexto}, "esquecendo" as definições arquiteturais feitas na Entrada 1 e sugerindo código fora do padrão estabelecido.
+
+\section*{Entrada 3: Falha na Implementação da API e Pivô de Ferramenta}
+\label{diario:entrada3}
+\textbf{Data:} 26/11/2025
+
+\begin{table}[H]
+    \centering
+    \small
+    \begin{tabularx}{\textwidth}{|l|X|}
+        \hline
+        \textbf{Requisito} & Implementação de Views e Serializers \\ \hline
+        \textbf{Ferramenta} & ChatGPT (Web) $\rightarrow$ \textbf{Migração para GitHub Copilot} \\ \hline
+    \end{tabularx}
+\end{table}
+
+\textbf{1. Problema (Loop de Erro):}
+Ao tentar implementar o \texttt{CartViewSet}, o ChatGPT gerou um código que resultava em \texttt{400 Bad Request}. Ao ser confrontado com o erro, a ferramenta entrou em contradição, sugerindo alterações cíclicas entre \texttt{ModelViewSet} e \texttt{GenericViewSet} sem resolver a causa raiz (validação do serializer).
+
+\textbf{2. Decisão Metodológica (Pivot):}
+Diagnosticou-se que a ferramenta baseada em chat era insuficiente para refatoração de múltiplos arquivos interdependentes. Optou-se pela migração para o \textbf{GitHub Copilot Agent} no VS Code, utilizando a flag \texttt{@workspace} para leitura de contexto local.
+
+\section*{Entrada 4: Implementação de Lógica Complexa (Service)}
+\label{diario:entrada4}
+\textbf{Data:} 27/11/2025
+
+\begin{table}[H]
+    \centering
+    \small
+    \begin{tabularx}{\textwidth}{|l|X|}
+        \hline
+        \textbf{Ferramenta} & GitHub Copilot Agent \\ \hline
+        \textbf{Requisito} & Regras de Negócio: Estoque e Atomicidade \\ \hline
+    \end{tabularx}
+\end{table}
+
+\textbf{1. Prompt Técnico:}
+\begin{quote}
+"@workspace Implemente a lógica de \texttt{add\_item} no \texttt{CartService}. Requisitos: Validação de estoque (lançar ValueError), Snapshot de preço e garantia de atomicidade de banco de dados."
+\end{quote}
+
+\textbf{2. Resultado (Sucesso):}
+A IA gerou uma implementação robusta:
+\begin{itemize}
+    \item Usou \texttt{transaction.atomic} e \texttt{select\_for\_update} corretamente para evitar \textit{Race Conditions}.
+    \item Sugeriu proativamente a extração da validação para um método privado \texttt{\_validate\_stock}, reduzindo a complexidade ciclomática (Atendendo RNF-A2).
+\end{itemize}
+
+\section*{Entrada 5: Testes Automatizados e Correção de Configuração}
+\label{diario:entrada5}
+\textbf{Data:} 28/11/2025
+
+\begin{table}[H]
+    \centering
+    \small
+    \begin{tabularx}{\textwidth}{|l|X|}
+        \hline
+        \textbf{Requisito} & RNF-A1 (Cobertura de Testes) \\ \hline
+        \textbf{Resultado} & \textbf{92\% de Cobertura} no Módulo Cart \\ \hline
+    \end{tabularx}
+\end{table}
+
+\textbf{1. Incidente de Configuração:}
+Ao rodar os testes gerados, ocorreu o erro \texttt{RuntimeError: Model class ... isn't in INSTALLED\_APPS}.
+\textbf{2. Correção Assistida:}
+O Copilot analisou o workspace e identificou que, embora o app estivesse no \texttt{settings.py} principal, ele estava ausente do \texttt{settings\_test.py} usado pelo Pytest. A IA gerou o patch de correção imediatamente.
+
+\section*{Entrada 6: Refinamento de API (Correção de URLs)}
+\label{diario:entrada6}
+\textbf{Data:} 09/12/2025
+
+\begin{table}[H]
+    \centering
+    \small
+    \begin{tabularx}{\textwidth}{|l|X|}
+        \hline
+        \textbf{Requisito} & UX da API e Padrões REST \\ \hline
+        \textbf{Problema} & Redundância nas rotas (\texttt{/cart/v1/cart/...}) \\ \hline
+    \end{tabularx}
+\end{table}
+
+\textbf{1. Análise Humana:}
+A inspeção do Swagger revelou URLs mal formadas devido à configuração padrão do \texttt{DefaultRouter} do DRF sugerida pela IA.
+
+\textbf{2. Ação Corretiva:}
+Solicitou-se a correção do \texttt{urls.py} para registrar a rota base como vazia, normalizando os endpoints para \texttt{/cart/v1/add\_item/}. Isso exigiu a atualização subsequente de todos os testes de integração que quebraram (Regressão).
+
+\section*{Entrada 7: Refinamento Semântico (Remoção de Paginação)}
+\label{diario:entrada7}
+\textbf{Data:} 10/12/2025
+
+\begin{table}[H]
+    \centering
+    \small
+    \begin{tabularx}{\textwidth}{|l|X|}
+        \hline
+        \textbf{Requisito} & Semântica de Negócio (Carrinho Único) \\ \hline
+        \textbf{Problema} & Endpoint GET retornava lista paginada \\ \hline
+    \end{tabularx}
+\end{table}
+
+\textbf{1. Problema Semântico:}
+A IA aplicou o padrão genérico de "Listagem" do Django Rest Framework, retornando uma estrutura paginada (`count`, `results: [...]`) para o endpoint de visualização do carrinho.
+\textbf{2. Intervenção Humana:}
+O pesquisador identificou que, semanticamente, um usuário possui apenas \textbf{um} carrinho ativo. Foi solicitado à IA que sobrescrevesse o método \texttt{list} do ViewSet para retornar o objeto direto, simplificando o consumo pelo frontend.
+
+\textbf{3. Conclusão da Intervenção A:}
+Com este ajuste final, o módulo atingiu os critérios de qualidade funcional, semântica e de cobertura, encerrando-se a fase de desenvolvimento do Carrinho.
 
 \end{apendicesenv}
